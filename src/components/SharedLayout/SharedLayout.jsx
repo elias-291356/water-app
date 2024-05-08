@@ -1,7 +1,12 @@
 import React from "react";
+import Header from "../Header/Header";
 
 const SharedLayout = () => {
-  return <div>SharedLayout</div>;
+  return (
+    <>
+      <Header />
+    </>
+  );
 };
 
 export default SharedLayout;

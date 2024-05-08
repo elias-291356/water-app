@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
-import "./App.css";
+import { Link, Route, Routes } from "react-router-dom";
+import "./index.css";
 import SharedLayout from "./components/SharedLayout/SharedLayout";
 
 function App() {
@@ -7,17 +7,15 @@ function App() {
     <>
       <div>
         <nav>
-          <Link to="/" end>
-            SharedLayout
-          </Link>
-          <Link to="/about">About</Link>
-          <Link to="/products">Products</Link>
+          <Link to="/">SharedLayout</Link>
+          {/* <Link to="/about">About</Link> */}
+          {/* <Link to="/products">Products</Link> */}
         </nav>
 
         <Routes>
           <Route path="/" element={<SharedLayout />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/products" element={<Products />} />
+          {/* <Route path="/about" element={<About />} /> */}
+          {/* <Route path="/products" element={<Products />} /> */}
         </Routes>
       </div>
     </>
