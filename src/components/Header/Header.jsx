@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import sprite from "../../images/sprite.svg";
 import {
+  StyledHeader,
   StyledHeaderList,
   StyledHeaderUser,
   StyledHeaderUserItem,
@@ -11,7 +12,7 @@ import {
 
 const Header = () => {
   return (
-    <header>
+    <StyledHeader>
       <nav>
         <StyledHeaderList>
           <li>
@@ -31,7 +32,7 @@ const Header = () => {
           </StyledHeaderUserItem>
         </StyledHeaderList>
       </nav>
-    </header>
+    </StyledHeader>
   );
 };
 

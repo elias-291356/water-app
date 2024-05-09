@@ -11,9 +11,12 @@ export const StyledHeaderUser = styled.svg`
   width: 28px;
 `;
 export const StyledHeaderList = styled.ul`
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const StyledHeader = styled.header`
   @media screen and (min-width: 320px) {
-    display: flex;
-    justify-content: space-between;
     margin-right: auto;
     margin-left: auto;
     height: 48px;
@@ -38,6 +41,7 @@ export const StyledHeaderUserItem = styled.li`
 `;
 export const StyledHeaderUserItemLink = styled(Link)`
   color: var(--primary-blue);
+  text-decoration: none;
 `;
 
 // настроить размеры контейнера для хедера , медиаправила из списка перенести на хедер
