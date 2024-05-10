@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import sprite from "../../images/sprite.svg";
-import { StyledLogo } from "../Header/HeaderStyled";
+import { StyledLogo } from "./LogoStyled";
 const Logo = () => {
   return (
     <>
