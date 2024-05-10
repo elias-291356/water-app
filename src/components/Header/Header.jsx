@@ -1,13 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import sprite from "../../images/sprite.svg";
+import Logo from "../Logo/Logo";
 import {
   StyledHeader,
   StyledHeaderList,
   StyledHeaderUser,
   StyledHeaderUserItem,
   StyledHeaderUserItemLink,
-  StyledLogo,
 } from "./HeaderStyled.js";
 
 const Header = () => {
@@ -15,13 +14,7 @@ const Header = () => {
     <StyledHeader>
       <nav>
         <StyledHeaderList>
-          <li>
-            <Link to="/">
-              <StyledLogo>
-                <use href={`${sprite}#icon-logo`}></use>
-              </StyledLogo>
-            </Link>
-          </li>
+          <Logo />
           <StyledHeaderUserItem>
             <StyledHeaderUserItemLink to="/signin">
               Sign in
