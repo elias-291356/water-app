@@ -4,7 +4,6 @@ import WhyDrinkWater from "../../components/WhyDrinkWater/WhyDrinkWater";
 const WelcomePage = () => {
   return (
     <>
-      <h1>WelcomePage</h1>
       <WaterСonsumptionTracker />
       <WhyDrinkWater />
     </>

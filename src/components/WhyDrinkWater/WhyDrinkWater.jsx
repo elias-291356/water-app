@@ -1,19 +1,29 @@
 import React from "react";
+import {
+  StyledDescrList,
+  StyledDescrSection,
+  StyledDescrWhy,
+  StyledItemWhy,
+} from "./WhyDrinkWaterStyled";
 
 const WhyDrinkWater = () => {
   return (
-    <>
-      <h3>Why drink water</h3>
-      <ul>
-        <li>Supply of nutrients to all organs</li>
-        <li>Providing oxygen to the lungs</li>
-        <li>Maintaining the work of the heart</li>
-        <li>Release of processed substances</li>
-        <li>Ensuring the stability of the internal environment</li>
-        <li>Maintaining within the normal temperature</li>
-        <li>Maintaining an immune system capable of resisting disease</li>
-      </ul>
-    </>
+    <StyledDescrSection>
+      <StyledDescrWhy>Why drink water</StyledDescrWhy>
+      <StyledDescrList>
+        <StyledItemWhy>Supply of nutrients to all organs</StyledItemWhy>
+        <StyledItemWhy>Providing oxygen to the lungs</StyledItemWhy>
+        <StyledItemWhy>Maintaining the work of the heart</StyledItemWhy>
+        <StyledItemWhy>Release of processed substances</StyledItemWhy>
+        <StyledItemWhy>
+          Ensuring the stabiStyledItemWhyty of the internal environment
+        </StyledItemWhy>
+        <StyledItemWhy>Maintaining within the normal temperature</StyledItemWhy>
+        <StyledItemWhy>
+          Maintaining an immune system capable of resisting disease
+        </StyledItemWhy>
+      </StyledDescrList>
+    </StyledDescrSection>
   );
 };
 
