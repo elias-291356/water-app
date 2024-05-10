@@ -8,4 +8,6 @@ export const StyledHeaderUserItem = styled.li`
 export const StyledHeaderUserItemLink = styled.button`
   color: var(--primary-blue);
   text-decoration: none;
+  background-color: transparent;
+  border: none;
 `;

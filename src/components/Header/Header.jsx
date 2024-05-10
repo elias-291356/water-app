@@ -1,18 +1,18 @@
 import React from "react";
 import Logo from "../Logo/Logo";
 import UserAuth from "../UserAuth/UserAuth";
-import { StyledHeader, StyledHeaderList } from "./HeaderStyled.js";
+import { StyledHeaderList } from "./HeaderStyled.js";
 
 const Header = () => {
   return (
-    <StyledHeader>
+    <header>
       <nav>
         <StyledHeaderList>
           <Logo />
           <UserAuth />
         </StyledHeaderList>
       </nav>
-    </StyledHeader>
+    </header>
   );
 };
 

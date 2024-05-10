@@ -7,20 +7,18 @@ import SigninPage from "./pages/SigninPage/SigninPage";
 function App() {
   return (
     <>
-      <div>
-        <nav>
-          <Link to="/">SharedLayout</Link>
-          {/* <Link to="/sign-up">SignupPage</Link> */}
-          {/* <Link to="/products">Products</Link> */}
-        </nav>
+      {/* <nav>
+          <Link to="/"></Link> */}
+      {/* <Link to="/sign-up">SignupPage</Link> */}
+      {/* <Link to="/products">Products</Link> */}
+      {/* </nav> */}
 
-        <Routes>
-          <Route path="/" element={<SharedLayout />} />
-          <Route path="/sign-up" element={<SignupPage />} />
-          <Route path="/sign-in" element={<SigninPage />} />
-          {/* <Route path="/products" element={<Products />} /> */}
-        </Routes>
-      </div>
+      <Routes>
+        <Route path="/" element={<SharedLayout />} />
+        <Route path="/sign-up" element={<SignupPage />} />
+        <Route path="/sign-in" element={<SigninPage />} />
+        {/* <Route path="/products" element={<Products />} /> */}
+      </Routes>
     </>
   );
 }
