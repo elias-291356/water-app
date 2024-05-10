@@ -43,5 +43,3 @@ export const StyledHeaderUserItemLink = styled(Link)`
   color: var(--primary-blue);
   text-decoration: none;
 `;
-
-// настроить размеры контейнера для хедера , медиаправила из списка перенести на хедер
