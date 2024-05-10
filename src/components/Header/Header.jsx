@@ -1,13 +1,7 @@
 import React from "react";
-import sprite from "../../images/sprite.svg";
 import Logo from "../Logo/Logo";
-import {
-  StyledHeader,
-  StyledHeaderList,
-  StyledHeaderUser,
-  StyledHeaderUserItem,
-  StyledHeaderUserItemLink,
-} from "./HeaderStyled.js";
+import UserAuth from "../UserAuth/UserAuth";
+import { StyledHeader, StyledHeaderList } from "./HeaderStyled.js";
 
 const Header = () => {
   return (
@@ -15,14 +9,7 @@ const Header = () => {
       <nav>
         <StyledHeaderList>
           <Logo />
-          <StyledHeaderUserItem>
-            <StyledHeaderUserItemLink to="/signin">
-              Sign in
-            </StyledHeaderUserItemLink>
-            <StyledHeaderUser>
-              <use href={`${sprite}#icon-user`}></use>
-            </StyledHeaderUser>
-          </StyledHeaderUserItem>
+          <UserAuth />
         </StyledHeaderList>
       </nav>
     </StyledHeader>

@@ -34,12 +34,3 @@ export const StyledHeader = styled.header`
 
   /* align-items: center; */
 `;
-export const StyledHeaderUserItem = styled.li`
-  display: flex;
-  align-items: center;
-  column-gap: 8px;
-`;
-export const StyledHeaderUserItemLink = styled(Link)`
-  color: var(--primary-blue);
-  text-decoration: none;
-`;
