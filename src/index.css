@@ -32,7 +32,6 @@ img {
 }
 
 ul {
-  /* list-style-type: none; */
   padding-left: 0px;
 
 }
@@ -48,7 +47,7 @@ li {
   margin-bottom: 0;
 }
 
-.list {
+li {
   list-style-type: none;
 }
 
@@ -88,7 +87,6 @@ button {
   .container {
     width: 704px;
     padding-top: 16px;
-    max-width: 768px;
 
   }
 }
@@ -97,7 +95,6 @@ button {
   .container {
     width: 1216px;
     padding-top: 12px;
-    min-width: 1440px;
 
   }
 }

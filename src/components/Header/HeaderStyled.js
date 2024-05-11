@@ -13,5 +13,3 @@ export const StyledHeaderList = styled.ul`
   display: flex;
   justify-content: space-between;
 `;
-
-

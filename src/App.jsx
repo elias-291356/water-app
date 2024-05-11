@@ -17,7 +17,6 @@ function App() {
         <Route path="/" element={<SharedLayout />} />
         <Route path="/sign-up" element={<SignupPage />} />
         <Route path="/sign-in" element={<SigninPage />} />
-        {/* <Route path="/products" element={<Products />} /> */}
       </Routes>
     </>
   );

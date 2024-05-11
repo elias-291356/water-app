@@ -10,6 +10,14 @@ export const StyledDescrSection = styled.section`
   width: 280px;
   box-shadow: 0 4px 14px 0 rgba(64, 123, 255, 0.3);
   background-color: var(--secondary-light-blue);
+
+  @media screen and (min-width: 768px) {
+    width: 494px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    align-self: flex-end;
+  }
 `;
 
 export const StyledDescrWhy = styled.h3`
