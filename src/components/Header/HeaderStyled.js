@@ -12,4 +12,12 @@ export const StyledHeaderUser = styled.svg`
 export const StyledHeaderList = styled.ul`
   display: flex;
   justify-content: space-between;
+
+  padding-bottom: 24px;
+  @media screen and (min-width: 768px) {
+    padding-bottom: 40px;
+  }
+  @media screen and (min-width: 1280px) {
+    padding-bottom: 80px;
+  }
 `;
