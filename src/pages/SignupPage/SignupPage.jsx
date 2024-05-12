@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import AuthForm from "../../components/AuthForm/AuthForm";
 import Header from "../../components/Header/Header";
-import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+// import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import sprite from "../../images/sprite.svg";
 
@@ -20,8 +19,9 @@ import {
 } from "./SignupPageStyled";
 
 const SignupPage = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const [passwordError, setPasswordError] = useState("");
+  const [emailError, setEmailError] = useState("");
   const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = (data) => {
@@ -30,13 +30,21 @@ const SignupPage = () => {
       return;
     }
     console.log(data);
-
     // dispatch(registerThunk(data));
     reset();
   };
-
+  const validateEmail = (value) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const isValid = emailRegex.test(value);
+    if (!isValid) {
+      setEmailError("Example of valid email: john@mail.com");
+    } else {
+      setEmailError("");
+    }
+    return isValid;
+  };
   const validatePassword = (value) => {
-    const hasNumber = /\d/.test(value);
+    const hasNumber = (value.match(/\d/g) || []).length >= 6;
     const hasLowerCase = /[a-z]/.test(value);
     const hasUpperCase = /[A-Z]/.test(value);
     const hasSpecialChar = /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/.test(value);
@@ -46,16 +54,16 @@ const SignupPage = () => {
       hasLowerCase &&
       hasUpperCase &&
       hasSpecialChar &&
-      value.length >= 6;
+      value.length >= 6 &&
+      value.length <= 16;
 
     if (!isValid) {
       setPasswordError(
-        "Password must contain at least one number, one lowercase letter, one uppercase letter, and one special character."
+        "Password must contain at least 6 numbers, one lowercase letter, one uppercase letter, and one special character. In summary  9 - 16 symbols"
       );
     } else {
       setPasswordError("");
     }
-
     return isValid;
   };
 
@@ -64,23 +72,19 @@ const SignupPage = () => {
       <Header />
       <StyledFormWrapper>
         <StyledSignUpTitle>Sign Up</StyledSignUpTitle>
-
+        <ErrorMessage>{emailError}</ErrorMessage>
         <StyledForm onSubmit={handleSubmit(onSubmit)}>
-          <div>
-            <StyledLabel>Enter your email</StyledLabel>
-          </div>
-          <div>
-            <StyledInput
-              name="email"
-              required
-              type="email"
-              placeholder="E-mail"
-              {...register("email", { required: true })}
-            />
-          </div>
-          <div>
-            <StyledLabel>Enter your password</StyledLabel>
-          </div>
+          <StyledInput
+            name="email"
+            required
+            type="email"
+            placeholder="E-mail"
+            {...register("email", {
+              required: true,
+              validate: validateEmail,
+            })}
+          />
+          <StyledLabel>Enter your password</StyledLabel>
           <StyledWrapInput>
             <StyledInput
               name="password"
@@ -95,16 +99,13 @@ const SignupPage = () => {
             </StyledSvgIconHide>
           </StyledWrapInput>
           <ErrorMessage>{passwordError}</ErrorMessage>
-          <div>
-            <StyledLabel>Repeat password</StyledLabel>
-          </div>
+          <StyledLabel>Repeat password</StyledLabel>
           <StyledWrapInput>
             <StyledInput
               name="confirmPassword"
               type="password"
               placeholder="Repeat password"
-              minLength={6}
-              {...register("confirmPassword", { required: true })}
+              {...register("confirmPassword")}
             />
             <StyledSvgIconHide>
               <use href={`${sprite}#icon-hide`}></use>
