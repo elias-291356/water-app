@@ -87,6 +87,7 @@ const SignupPage = () => {
         <StyledSignUpTitle>Sign Up</StyledSignUpTitle>
         <ErrorMessage>{emailError}</ErrorMessage>
         <StyledForm onSubmit={handleSubmit(onSubmit)}>
+          <StyledLabel>Enter your email</StyledLabel>
           <StyledInputEmail
             isvalidborderemail={isValidBorderEmail}
             name="email"
