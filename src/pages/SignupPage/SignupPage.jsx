@@ -9,25 +9,34 @@ import {
   StyledAuthButton,
   StyledForm,
   StyledFormWrapper,
-  StyledInput,
+  // StyledInput,
   StyledLabel,
   StyledSigninLink,
   StyledSignUpTitle,
   StyledSvgIconHide,
   StyledWrapInput,
   ErrorMessage,
+  StyledInputEmail,
+  StyledInputConfirm,
+  StyledInputPassword,
 } from "./SignupPageStyled";
 
 const SignupPage = () => {
   // const dispatch = useDispatch();
   const [passwordError, setPasswordError] = useState("");
   const [emailError, setEmailError] = useState("");
+  const [isValidBorderEmail, setIsValidBorderEmail] = useState(true);
+  const [isValidBorderPassword, setIsValidBorderPassword] = useState(true);
+  const [isValidBorderConfirm, setIsValidBorderConfirm] = useState(true);
   const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = (data) => {
     if (data.password !== data.confirmPassword) {
       setPasswordError("Passwords do not match.");
+      setIsValidBorderConfirm(false); // Устанавливаем false, если пароли не совпадают
       return;
+    } else {
+      setIsValidBorderConfirm(true); // Устанавливаем true, если пароли совпадают
     }
     console.log(data);
     // dispatch(registerThunk(data));
@@ -38,7 +47,9 @@ const SignupPage = () => {
     const isValid = emailRegex.test(value);
     if (!isValid) {
       setEmailError("Example of valid email: john@mail.com");
+      setIsValidBorderEmail(false);
     } else {
+      setIsValidBorderEmail(true);
       setEmailError("");
     }
     return isValid;
@@ -61,7 +72,9 @@ const SignupPage = () => {
       setPasswordError(
         "Password must contain at least 6 numbers, one lowercase letter, one uppercase letter, and one special character. In summary  9 - 16 symbols"
       );
+      setIsValidBorderPassword(false);
     } else {
+      setIsValidBorderPassword(true);
       setPasswordError("");
     }
     return isValid;
@@ -74,7 +87,8 @@ const SignupPage = () => {
         <StyledSignUpTitle>Sign Up</StyledSignUpTitle>
         <ErrorMessage>{emailError}</ErrorMessage>
         <StyledForm onSubmit={handleSubmit(onSubmit)}>
-          <StyledInput
+          <StyledInputEmail
+            isvalidborderemail={isValidBorderEmail}
             name="email"
             required
             type="email"
@@ -86,7 +100,8 @@ const SignupPage = () => {
           />
           <StyledLabel>Enter your password</StyledLabel>
           <StyledWrapInput>
-            <StyledInput
+            <StyledInputPassword
+              isvalidborderpassword={isValidBorderPassword}
               name="password"
               type="password"
               placeholder="Password"
@@ -101,7 +116,8 @@ const SignupPage = () => {
           <ErrorMessage>{passwordError}</ErrorMessage>
           <StyledLabel>Repeat password</StyledLabel>
           <StyledWrapInput>
-            <StyledInput
+            <StyledInputConfirm
+              isvalidborderconfirm={isValidBorderConfirm}
               name="confirmPassword"
               type="password"
               placeholder="Repeat password"

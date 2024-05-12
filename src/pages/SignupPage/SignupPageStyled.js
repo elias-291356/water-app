@@ -22,12 +22,53 @@ export const StyledLabel = styled.label`
   line-height: 1.33333;
 `;
 
-export const StyledInput = styled.input`
-  border: 1px solid var(--secondary-light-sky);
+export const StyledInputEmail = styled.input`
+  border-radius: 6px;
+  border-width: 1px;
+  border-style: solid;
+  padding: 12px 10px;
+  width: 280px;
+  height: 44px;
+  border-color: ${(props) =>
+    props.isvalidborderemail ? "var(--secondary-light-sky)" : "red"};
+
+  &::placeholder {
+    color: var(--secondary-blue);
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 336px;
+  }
+`;
+export const StyledInputPassword = styled.input`
+  /* border: 1px solid var(--secondary-light-sky); */
   border-radius: 6px;
   padding: 12px 10px;
   width: 280px;
   height: 44px;
+  border: 1px solid
+    ${(props) =>
+      props.isvalidborderpassword ? "var(--secondary-light-sky)" : "red"};
+
+  &::placeholder {
+    color: var(--secondary-blue);
+  }
+  @media screen and (min-width: 768px) {
+    width: 336px;
+  }
+
+  @media screen and (min-width: 1280px) {
+  }
+`;
+export const StyledInputConfirm = styled.input`
+  /* border: 1px solid var(--secondary-light-sky); */
+  border-radius: 6px;
+  padding: 12px 10px;
+  width: 280px;
+  height: 44px;
+  border: 1px solid
+    ${(props) =>
+      props.isvalidborderconfirm ? "var(--secondary-light-sky)" : "red"};
 
   &::placeholder {
     color: var(--secondary-blue);
