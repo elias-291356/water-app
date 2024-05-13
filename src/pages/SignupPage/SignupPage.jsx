@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import AuthForm from "../../components/AuthForm/AuthForm";
 import Header from "../../components/Header/Header";
-// import { useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import sprite from "../../images/sprite.svg";
 
@@ -9,11 +9,10 @@ import {
   StyledAuthButton,
   StyledForm,
   StyledFormWrapper,
-  // StyledInput,
   StyledLabel,
   StyledSigninLink,
   StyledSignUpTitle,
-  StyledSvgIconHide,
+  StyledSvgIconShowPassword,
   StyledWrapInput,
   ErrorMessage,
   StyledInputEmail,
@@ -22,21 +21,23 @@ import {
 } from "./SignupPageStyled";
 
 const SignupPage = () => {
-  // const dispatch = useDispatch();
-  const [passwordError, setPasswordError] = useState("");
+  const dispatch = useDispatch();
   const [emailError, setEmailError] = useState("");
-  const [isValidBorderEmail, setIsValidBorderEmail] = useState(true);
-  const [isValidBorderPassword, setIsValidBorderPassword] = useState(true);
-  const [isValidBorderConfirm, setIsValidBorderConfirm] = useState(true);
+  const [passwordError, setPasswordError] = useState("");
+  const [isValidBorderEmail, setIsValidBorderEmail] = useState(" ");
+  const [isValidBorderPassword, setIsValidBorderPassword] = useState(" ");
+  const [isValidBorderConfirm, setIsValidBorderConfirm] = useState(" ");
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = (data) => {
     if (data.password !== data.confirmPassword) {
       setPasswordError("Passwords do not match.");
-      setIsValidBorderConfirm(false); // Устанавливаем false, если пароли не совпадают
+      setIsValidBorderConfirm("");
       return;
     } else {
-      setIsValidBorderConfirm(true); // Устанавливаем true, если пароли совпадают
+      setIsValidBorderConfirm(" ");
     }
     console.log(data);
     // dispatch(registerThunk(data));
@@ -47,9 +48,9 @@ const SignupPage = () => {
     const isValid = emailRegex.test(value);
     if (!isValid) {
       setEmailError("Example of valid email: john@mail.com");
-      setIsValidBorderEmail(false);
+      setIsValidBorderEmail("");
     } else {
-      setIsValidBorderEmail(true);
+      setIsValidBorderEmail(" ");
       setEmailError("");
     }
     return isValid;
@@ -72,14 +73,20 @@ const SignupPage = () => {
       setPasswordError(
         "Password must contain at least 6 numbers, one lowercase letter, one uppercase letter, and one special character. In summary  9 - 16 symbols"
       );
-      setIsValidBorderPassword(false);
+      setIsValidBorderPassword("");
     } else {
-      setIsValidBorderPassword(true);
+      setIsValidBorderPassword(" ");
       setPasswordError("");
     }
     return isValid;
   };
 
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+  const toggleConfirmPassVisibility = () => {
+    setShowConfirmPassword(!showConfirmPassword);
+  };
   return (
     <>
       <Header />
@@ -89,7 +96,7 @@ const SignupPage = () => {
         <StyledForm onSubmit={handleSubmit(onSubmit)}>
           <StyledLabel>Enter your email</StyledLabel>
           <StyledInputEmail
-            isvalidborderemail={isValidBorderEmail}
+            $isValidBorderEmail={isValidBorderEmail}
             name="email"
             required
             type="email"
@@ -102,31 +109,35 @@ const SignupPage = () => {
           <StyledLabel>Enter your password</StyledLabel>
           <StyledWrapInput>
             <StyledInputPassword
-              isvalidborderpassword={isValidBorderPassword}
+              $isValidBorderPassword={isValidBorderPassword}
               name="password"
-              type="password"
+              type={showPassword ? "text" : "password"}
               placeholder="Password"
               {...register("password", {
                 validate: validatePassword,
               })}
             />
-            <StyledSvgIconHide>
-              <use href={`${sprite}#icon-hide`}></use>
-            </StyledSvgIconHide>
+            <StyledSvgIconShowPassword onClick={togglePasswordVisibility}>
+              <use
+                href={`${sprite}#icon-${showPassword ? "show" : "hide"}`}
+              ></use>
+            </StyledSvgIconShowPassword>
           </StyledWrapInput>
           <ErrorMessage>{passwordError}</ErrorMessage>
           <StyledLabel>Repeat password</StyledLabel>
           <StyledWrapInput>
             <StyledInputConfirm
-              isvalidborderconfirm={isValidBorderConfirm}
+              $isValidBorderConfirm={isValidBorderConfirm}
               name="confirmPassword"
-              type="password"
+              type={showConfirmPassword ? "text" : "password"}
               placeholder="Repeat password"
               {...register("confirmPassword")}
             />
-            <StyledSvgIconHide>
-              <use href={`${sprite}#icon-hide`}></use>
-            </StyledSvgIconHide>
+            <StyledSvgIconShowPassword onClick={toggleConfirmPassVisibility}>
+              <use
+                href={`${sprite}#icon-${showConfirmPassword ? "show" : "hide"}`}
+              ></use>
+            </StyledSvgIconShowPassword>
           </StyledWrapInput>
           <StyledAuthButton type="submit">Sign Up</StyledAuthButton>
         </StyledForm>

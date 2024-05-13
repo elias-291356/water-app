@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { styled } from "styled-components";
 
-export const StyledSvgIconHide = styled.svg`
+export const StyledSvgIconShowPassword = styled.svg`
   position: absolute;
   top: 12px;
   right: 10px;
@@ -22,64 +22,6 @@ export const StyledLabel = styled.label`
   line-height: 1.33333;
 `;
 
-export const StyledInputEmail = styled.input`
-  border-radius: 6px;
-  border-width: 1px;
-  border-style: solid;
-  padding: 12px 10px;
-  width: 280px;
-  height: 44px;
-  border-color: ${(props) =>
-    props.isvalidborderemail ? "var(--secondary-light-sky)" : "red"};
-
-  &::placeholder {
-    color: var(--secondary-blue);
-  }
-
-  @media screen and (min-width: 768px) {
-    width: 336px;
-  }
-`;
-export const StyledInputPassword = styled.input`
-  /* border: 1px solid var(--secondary-light-sky); */
-  border-radius: 6px;
-  padding: 12px 10px;
-  width: 280px;
-  height: 44px;
-  border: 1px solid
-    ${(props) =>
-      props.isvalidborderpassword ? "var(--secondary-light-sky)" : "red"};
-
-  &::placeholder {
-    color: var(--secondary-blue);
-  }
-  @media screen and (min-width: 768px) {
-    width: 336px;
-  }
-
-  @media screen and (min-width: 1280px) {
-  }
-`;
-export const StyledInputConfirm = styled.input`
-  /* border: 1px solid var(--secondary-light-sky); */
-  border-radius: 6px;
-  padding: 12px 10px;
-  width: 280px;
-  height: 44px;
-  border: 1px solid
-    ${(props) =>
-      props.isvalidborderconfirm ? "var(--secondary-light-sky)" : "red"};
-
-  &::placeholder {
-    color: var(--secondary-blue);
-  }
-  @media screen and (min-width: 768px) {
-    width: 336px;
-  }
-
-  @media screen and (min-width: 1280px) {
-  }
-`;
 export const StyledAuthButton = styled.button`
   margin-top: 8px;
   border-radius: 10px;
@@ -142,4 +84,68 @@ export const ErrorMessage = styled.div`
   color: red;
   font-size: 14px;
   margin-top: 5px;
+`;
+
+//======================= INPUTES
+export const StyledInputEmail = styled.input`
+  border-radius: 6px;
+  border-width: 1px;
+  border-style: solid;
+  padding: 12px 10px;
+  width: 280px;
+  height: 44px;
+  border: 1px solid
+    ${(props) =>
+      props.$isValidBorderEmail ? "var(--secondary-light-sky)" : "red"};
+
+  &::placeholder {
+    color: var(--secondary-blue);
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 336px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 384px;
+  }
+`;
+export const StyledInputPassword = styled.input`
+  border-radius: 6px;
+  padding: 12px 10px;
+  width: 280px;
+  height: 44px;
+  border: 1px solid
+    ${(props) =>
+      props.$isValidBorderPassword ? "var(--secondary-light-sky)" : "red"};
+
+  &::placeholder {
+    color: var(--secondary-blue);
+  }
+  @media screen and (min-width: 768px) {
+    width: 336px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 384px;
+  }
+`;
+export const StyledInputConfirm = styled.input`
+  border-radius: 6px;
+  padding: 12px 10px;
+  width: 280px;
+  height: 44px;
+  border: 1px solid
+    ${(props) =>
+      props.$isValidBorderConfirm ? "var(--secondary-light-sky)" : "red"};
+
+  &::placeholder {
+    color: var(--secondary-blue);
+  }
+  @media screen and (min-width: 768px) {
+    width: 336px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 384px;
+  }
 `;
