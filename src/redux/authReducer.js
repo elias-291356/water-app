@@ -8,7 +8,7 @@ const initialState = {
 };
 
 const periodSlice = createSlice({
-  name: "userAuth",
+  name: "period",
   initialState,
   reducers: {
     setSubmit: (state, action) => {

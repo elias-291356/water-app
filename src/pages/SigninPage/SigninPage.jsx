@@ -12,10 +12,10 @@ import {
   StyledLabel,
   StyledSigninLink,
   StyledSignUpTitle,
-  StyledSvgIconHide,
   StyledWrapInput,
   StyledInputEmail,
   StyledInputPassword,
+  StyledSvgIconShowPassword,
 } from "../SignupPage/SignupPageStyled";
 import { StyledInputInput } from "./SigninPageStyled";
 
@@ -56,9 +56,9 @@ const SignupPage = () => {
                 required: true,
               })}
             />
-            <StyledSvgIconHide>
+            <StyledSvgIconShowPassword>
               <use href={`${sprite}#icon-hide`}></use>
-            </StyledSvgIconHide>
+            </StyledSvgIconShowPassword>
           </StyledWrapInput>
 
           <StyledAuthButton type="submit">Sign In</StyledAuthButton>
