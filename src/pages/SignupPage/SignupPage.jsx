@@ -4,7 +4,7 @@ import Header from "../../components/Header/Header";
 import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import sprite from "../../images/sprite.svg";
-
+import { registerThunk } from "../../redux/thunk";
 import {
   StyledAuthButton,
   StyledForm,
@@ -40,7 +40,7 @@ const SignupPage = () => {
       setIsValidBorderConfirm(" ");
     }
     console.log(data);
-    // dispatch(registerThunk(data));
+    dispatch(registerThunk(data));
     reset();
   };
   const validateEmail = (value) => {
