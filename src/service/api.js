@@ -12,7 +12,6 @@ export const setToken = (token) => {
 const clearToken = () => {
   $instance.defaults.headers.Authorization = "";
 };
-
 // ==============
 // $instance.interceptors.request.use((config) => {
 //   const accessToken = localStorage.getItem("accessToken");
