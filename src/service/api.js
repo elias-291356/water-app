@@ -1,8 +1,9 @@
 import axios from "axios";
 
-// export const BASE_URL = "http://localhost:3000";
-// export const BASE_URL = "https://quiz-master-s113.onrender.com";
-export const BASE_URL = "https://water-app-back.onrender.com";
+import "dotenv/config";
+
+const { BASE_URL } = process.env;
+
 const $instance = axios.create({
   baseURL: BASE_URL,
 });
