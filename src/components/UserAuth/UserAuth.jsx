@@ -19,6 +19,7 @@ const UserAuth = () => {
         <StyledHeaderUserItemLink onClick={onClickToSigninPage}>
           Sign in
         </StyledHeaderUserItemLink>
+
         <StyledHeaderUser>
           <use href={`${sprite}#icon-user`}></use>
         </StyledHeaderUser>

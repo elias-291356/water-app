@@ -17,3 +17,13 @@ export const StyledInputInput = styled.input`
     width: 336px;
   }
 `;
+export const StyledALoginGoogle = styled.a`
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14286;
+  letter-spacing: -0.01em;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  color: tomato;
+`;
+
