@@ -18,7 +18,7 @@ import {
   StyledSvgIconShowPassword,
 } from "../SignupPage/SignupPageStyled";
 import { StyledALoginGoogle, StyledInputInput } from "./SigninPageStyled";
-// import { BASE_URL } from "../../service/api";
+import { BASE_URL } from "../../service/api";
 
 const SignupPage = () => {
   // const dispatch = useDispatch();
