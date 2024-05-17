@@ -19,6 +19,7 @@ import {
 } from "../SignupPage/SignupPageStyled";
 import { StyledALoginGoogle, StyledInputInput } from "./SigninPageStyled";
 import { BASE_URL } from "../../service/api";
+
 const SignupPage = () => {
   // const dispatch = useDispatch();
 
@@ -63,7 +64,7 @@ const SignupPage = () => {
 
           <StyledAuthButton type="submit">Sign In</StyledAuthButton>
         </StyledForm>
-        <StyledSigninLink to="/sign-up">Sign Up</StyledSigninLink>
+        <StyledSigninLink to="/signup">Sign Up</StyledSigninLink>
         <StyledALoginGoogle href={`${BASE_URL}/api/auth/google`}>
           Login with google
         </StyledALoginGoogle>

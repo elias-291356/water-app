@@ -15,7 +15,7 @@ import {
 const WaterСonsumptionTracker = () => {
   const navigate = useNavigate();
   const onClickToSignupPage = () => {
-    navigate("/sign-up");
+    navigate("/signup");
   };
 
   return (

@@ -11,7 +11,7 @@ const UserAuth = () => {
   const navigate = useNavigate();
 
   const onClickToSigninPage = () => {
-    navigate("/sign-in");
+    navigate("/signin");
   };
   return (
     <>
