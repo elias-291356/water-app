@@ -1,8 +1,6 @@
 import axios from "axios";
 
-import "dotenv/config";
-
-const { BASE_URL } = process.env;
+export const BASE_URL = "https://water-app-back-2box.onrender.com";
 
 const $instance = axios.create({
   baseURL: BASE_URL,

@@ -9,14 +9,14 @@ function App() {
     <>
       {/* <nav>
           <Link to="/"></Link> */}
-      {/* <Link to="/sign-up">SignupPage</Link> */}
+      {/* <Link to="/signup">SignupPage</Link> */}
       {/* <Link to="/products">Products</Link> */}
       {/* </nav> */}
 
       <Routes>
         <Route path="/" element={<SharedLayout />} />
-        <Route path="/sign-up" element={<SignupPage />} />
-        <Route path="/sign-in" element={<SigninPage />} />
+        <Route path="/signup" element={<SignupPage />} />
+        <Route path="/signin" element={<SigninPage />} />
       </Routes>
     </>
   );
