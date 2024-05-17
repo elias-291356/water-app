@@ -141,7 +141,7 @@ const SignupPage = () => {
           </StyledWrapInput>
           <StyledAuthButton type="submit">Sign Up</StyledAuthButton>
         </StyledForm>
-        <StyledSigninLink to="/sign-in">Sign In</StyledSigninLink>
+        <StyledSigninLink to="/signin">Sign In</StyledSigninLink>
         <AuthForm />
       </StyledFormWrapper>
     </>
