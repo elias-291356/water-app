@@ -20,11 +20,9 @@ const periodSlice = createSlice({
     builder
       //=====================REGISTER
       .addCase(registerThunk.pending, (state) => {
-        state.isLogin = true;
         state.error = null;
       })
       .addCase(registerThunk.fulfilled, (state, action) => {
-        state.isLogin = true;
         state.email = action.payload.email;
       })
       .addCase(registerThunk.rejected, (state, action) => {
@@ -34,7 +32,7 @@ const periodSlice = createSlice({
       })
       //=====================LOGIN
       .addCase(loginThunk.pending, (state) => {
-        state.isLogin = true;
+        state.isLogin = false;
         state.isLoading = true;
       })
       .addCase(loginThunk.fulfilled, (state, action) => {
