@@ -7,10 +7,10 @@ const $instance = axios.create({
 });
 
 export const setToken = (token) => {
-  $instance.defaults.headers.Authorization = `Bearer ${token}`;
+  $instance.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 const clearToken = () => {
-  $instance.defaults.headers.Authorization = "";
+  $instance.defaults.headers.common.Authorization = "";
 };
 // ==============
 // $instance.interceptors.request.use((config) => {
@@ -39,15 +39,15 @@ $instance.interceptors.response.use(
 //Auth Controller
 export const loginRequest = async (formData) => {
   const { data } = await $instance.post("/api/auth/signin", formData);
-
-  setToken(data.token);
+  setToken(data.accessToken);
   localStorage.setItem("refreshToken", data.refreshToken);
+  console.log(data);
   return data;
 };
 export const registerRequest = async (formData) => {
   const { data } = await $instance.post("/api/auth/signup", formData);
 
-  setToken(data.token);
+  setToken(data.accessToken);
   return data;
 };
 export const logoutRequest = async () => {

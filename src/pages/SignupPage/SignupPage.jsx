@@ -44,7 +44,7 @@ const SignupPage = () => {
     reset();
   };
   const validateEmail = (value) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     const isValid = emailRegex.test(value);
     if (!isValid) {
       setEmailError("Example of valid email: john@mail.com");
