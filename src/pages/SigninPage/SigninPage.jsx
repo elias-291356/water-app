@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import AuthForm from "../../components/AuthForm/AuthForm";
 import Header from "../../components/Header/Header";
-// import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import sprite from "../../images/sprite.svg";
 
@@ -19,18 +19,35 @@ import {
 } from "../SignupPage/SignupPageStyled";
 import { StyledALoginGoogle, StyledInputInput } from "./SigninPageStyled";
 import { BASE_URL } from "../../service/api";
-
+import { loginThunk } from "../../redux/thunk";
+import { selectIsLogin } from "../../redux/selectors";
+import { toast } from "react-toastify";
 const SignupPage = () => {
-  // const dispatch = useDispatch();
+  const [showPassword, setShowPassword] = useState(false);
+  const dispatch = useDispatch();
+  const isLogin = useSelector(selectIsLogin);
+
+  if (isLogin === true) {
+    toast.success("Welcome");
+  }
 
   const {
+    reset,
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
-  console.log(errors);
+  const onSubmit = (data) => {
+    console.log(data);
 
+    dispatch(loginThunk(data));
+    console.log(errors);
+    reset();
+  };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
   return (
     <>
       <Header />
@@ -49,16 +66,16 @@ const SignupPage = () => {
           />
           <StyledLabel>Enter your password</StyledLabel>
           <StyledWrapInput>
-            <StyledInputInput
+            <StyledInputPassword
               name="password"
-              type="password"
+              type={showPassword ? "text" : "password"}
               placeholder="Password"
-              {...register("password", {
-                required: true,
-              })}
+              {...register("password", {})}
             />
-            <StyledSvgIconShowPassword>
-              <use href={`${sprite}#icon-hide`}></use>
+            <StyledSvgIconShowPassword onClick={togglePasswordVisibility}>
+              <use
+                href={`${sprite}#icon-${showPassword ? "show" : "hide"}`}
+              ></use>
             </StyledSvgIconShowPassword>
           </StyledWrapInput>
 
