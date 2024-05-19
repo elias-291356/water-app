@@ -1,7 +1,4 @@
 import { configureStore } from "@reduxjs/toolkit";
-// import { userReducer } from "./userReducer";
-// import storage from "redux-persist/lib/storage";
-// import { combineReducers } from "redux";
 import {
   persistStore,
   persistReducer,
@@ -12,21 +9,20 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
-// import { categoriesReducer } from "./categoriesReducer";
-// import { expensesReducer } from "./expensesReducer";
-// import { incomeReducer } from "./incomeReducer";
+import storage from "redux-persist/lib/storage";
+// import { combineReducers } from "redux";
+
 import { periodInfoReducer } from "./authReducer";
 
 const userPersistConfig = {
   key: "user",
-  // storage,
-  whitelist: ["refreshToken", "sid"],
+  storage,
+  whitelist: ["refreshToken", "sid", "token"],
 };
 
-const store = configureStore({
+export const store = configureStore({
   reducer: {
-    // user: persistReducer(userPersistConfig, userReducer),
-    period: periodInfoReducer, // user auth
+    period: persistReducer(userPersistConfig, periodInfoReducer),
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
@@ -37,4 +33,3 @@ const store = configureStore({
 });
 
 export const persistor = persistStore(store);
-export default store;
