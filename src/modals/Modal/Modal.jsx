@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   ModalContainer,
   ModalBox,
@@ -13,7 +13,24 @@ import {
 } from "../Modal/ModalStyled";
 import { createPortal } from "react-dom";
 import sprite from "../../images/sprite.svg";
+
 const Modal = ({ show, close, title, children }) => {
+  useEffect(() => {
+    const handleEscape = (event) => {
+      if (event.key === "Escape") {
+        close();
+      }
+    };
+
+    if (show) {
+      window.addEventListener("keydown", handleEscape);
+    }
+
+    return () => {
+      window.removeEventListener("keydown", handleEscape);
+    };
+  }, [show, close]);
+
   return createPortal(
     <ModalContainer className={show ? "show" : ""} onClick={close}>
       <ModalBox onClick={(e) => e.stopPropagation()}>
