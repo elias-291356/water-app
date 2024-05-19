@@ -1,12 +1,12 @@
 import React from "react";
-import WelcomePage from "../../pages/WelcomePage/WelcomePage";
+import { Outlet } from "react-router-dom";
 import Header from "../Header/Header";
 
 const SharedLayout = () => {
   return (
     <>
       <Header />
-      <WelcomePage />
+      <Outlet />
     </>
   );
 };
