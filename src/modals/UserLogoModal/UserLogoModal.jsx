@@ -22,7 +22,7 @@ const UserLogoModal = () => {
 
   return (
     <Dropdown show={isOpen} onClick={toggleDropdown}>
-      <StyledDropdownToggle id="dropdown-basic">
+      <StyledDropdownToggle>
         <StyledHeaderUserSelect>
           <use href={`${sprite}#icon-down`}></use>
         </StyledHeaderUserSelect>
