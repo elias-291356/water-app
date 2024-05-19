@@ -21,6 +21,7 @@ import { StyledALoginGoogle, StyledInputInput } from "./SigninPageStyled";
 import { BASE_URL } from "../../service/api";
 import { loginThunk } from "../../redux/thunk";
 import { selectIsLogin } from "../../redux/selectors";
+import SettingModal from "../../modals/SettingModal/SettingModal";
 // import { toast } from "react-toastify";
 const SignupPage = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -80,6 +81,7 @@ const SignupPage = () => {
           Login with google
         </StyledALoginGoogle>
         <AuthForm />
+        <SettingModal />
       </StyledFormWrapper>
     </>
   );

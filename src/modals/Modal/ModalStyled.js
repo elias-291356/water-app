@@ -21,24 +21,24 @@ export const ModalContainer = styled.div`
 `;
 
 export const ModalBox = styled.div`
-  width: 30vw;
-  height: auto;
-  background-color: #fff;
-  padding: 2rem;
-  border-radius: 20px;
-  background-color: rgba(255, 255, 255, 0.35);
+  width: 280px;
+  /* height: 852px; */
+  padding: 32px 12px;
+  border-radius: 10px;
+  background-color: var(--primary-white);
   backdrop-filter: blur(5px);
-  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.2);
 `;
 
 export const ModalHeader = styled.header`
   position: relative;
-  border-bottom: 1px solid #dddddd;
-  text-align: center;
 `;
 
 export const ModalHeaderTitle = styled.h2`
-  text-align: center;
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 1.23077;
+  color: var(--primary-black);
 `;
 
 export const CloseButton = styled.button`
@@ -48,27 +48,14 @@ export const CloseButton = styled.button`
   background: transparent;
   border: none;
   cursor: pointer;
-  img {
-    width: 1rem;
-    height: auto;
-    transition: all 0.3s;
-  }
-  &:hover img {
-    transform: scale(1.1);
-  }
 `;
 
-export const ModalContent = styled.main`
-  border-bottom: 1px solid #dddddd;
-  padding: 2rem 0;
-`;
+export const ModalContent = styled.main``;
 
 export const ModalFooter = styled.footer`
-  padding: 2rem 0;
   padding-bottom: 0;
   display: flex;
   justify-content: flex-end;
-  gap: 1rem;
 `;
 
 export const Button = styled.button`
@@ -80,17 +67,11 @@ export const Button = styled.button`
 export const CancelButton = styled(Button)`
   background-color: transparent;
   font-weight: 600;
-  &:hover {
-    color: rgba(54, 67, 72, 0.8);
-  }
 `;
 
 export const SubmitButton = styled(Button)`
   background-color: #364348;
   color: #fff;
-  &:hover {
-    background-color: rgba(54, 67, 72, 0.8);
-  }
 `;
 export const StyledModalCloseSvg = styled.svg`
   height: 24px;

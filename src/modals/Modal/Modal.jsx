@@ -14,7 +14,7 @@ import {
 import { createPortal } from "react-dom";
 import sprite from "../../images/sprite.svg";
 
-const Modal = ({ show, close, title, children }) => {
+const Modal = ({ show, close, children }) => {
   useEffect(() => {
     const handleEscape = (event) => {
       if (event.key === "Escape") {
@@ -35,7 +35,7 @@ const Modal = ({ show, close, title, children }) => {
     <ModalContainer className={show ? "show" : ""} onClick={close}>
       <ModalBox onClick={(e) => e.stopPropagation()}>
         <ModalHeader>
-          <ModalHeaderTitle>{title}</ModalHeaderTitle>
+          <ModalHeaderTitle>Setting</ModalHeaderTitle>
           <CloseButton onClick={close}>
             <StyledModalCloseSvg>
               <use href={`${sprite}#icon-close`}></use>
