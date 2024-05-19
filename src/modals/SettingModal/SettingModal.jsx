@@ -8,8 +8,8 @@ const SettingModal = () => {
   return (
     <div className="App">
       <button onClick={Toggle}>Modal</button>
-      <Modal show={modal} title="My Modal" close={Toggle}>
-        This is Modal content
+      <Modal show={modal} close={Toggle}>
+        Modal Content
       </Modal>
     </div>
   );

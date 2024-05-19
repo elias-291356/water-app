@@ -9,7 +9,6 @@ const HomePage = () => {
       HomePage private route
       {/* <Header />
       <Outlet /> */}
-      <SettingModal />
     </div>
   );
 };
