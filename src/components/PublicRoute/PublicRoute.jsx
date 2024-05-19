@@ -7,11 +7,11 @@ const PublicRoute = () => {
   const isLogin = useSelector(selectIsLogin);
   const token = useSelector(selectToken);
   if (!isLogin && token) {
-    return <p>...Loading</p>;
+    return <p>...Loading PUBLIC</p>;
   }
 
   if (isLogin) {
-    return <Navigate to="/home" />;
+    return <Navigate to="/" />;
   }
 
   return <Outlet />;

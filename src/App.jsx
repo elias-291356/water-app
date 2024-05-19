@@ -13,13 +13,15 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<SharedLayout />}>
-          <Route index element={<WelcomePage />} />
+          <Route element={<PrivateRoute />}>
+            <Route index element={<HomePage />} />
+            {/* <Route path="/" element={<HomePage />} /> */}
+          </Route>
+
           <Route element={<PublicRoute />}>
+            <Route index element={<WelcomePage />} />
             <Route path="signup" element={<SignupPage />} />
             <Route path="signin" element={<SigninPage />} />
-          </Route>
-          <Route element={<PrivateRoute />}>
-            <Route path="home" element={<HomePage />} />
           </Route>
         </Route>
       </Routes>

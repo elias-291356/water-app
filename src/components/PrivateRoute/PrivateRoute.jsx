@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { Outlet, Navigate } from "react-router-dom";
+import HomePage from "../../pages/HomePage/HomePage";
 
 import { selectIsLogin, selectToken } from "../../redux/selectors";
 
@@ -8,7 +9,7 @@ const PrivateRoute = () => {
   const token = useSelector(selectToken);
 
   if (!isLogin && token) {
-    return <p>...Loading</p>;
+    return <p>...Loading PRIVAT</p>;
   }
 
   if (!isLogin && !token) {
