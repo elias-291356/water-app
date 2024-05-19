@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectIsLogin, selectToken } from "../../redux/selectors";
 import { logoutThunk } from "../../redux/thunk";
 import { StyledSigninLink } from "../../pages/SignupPage/SignupPageStyled";
+import UserLogoModal from "../../modals/UserLogoModal/UserLogoModal";
 
 const UserAuth = () => {
   const navigate = useNavigate();
@@ -29,10 +30,11 @@ const UserAuth = () => {
     <>
       {isLogin ? (
         <StyledHeaderUserItem>
+          <p>Name</p>
           <StyledHeaderUser>
             <use href={`${sprite}#icon-user`}></use>
           </StyledHeaderUser>
-          <StyledSigninLink onClick={handleLogout}>Sign out</StyledSigninLink>
+          <UserLogoModal />
         </StyledHeaderUserItem>
       ) : (
         <StyledHeaderUserItem>
