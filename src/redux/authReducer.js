@@ -8,8 +8,8 @@ const initialState = {
   isLoading: false,
 };
 
-const periodSlice = createSlice({
-  name: "period",
+const authSlice = createSlice({
+  name: "auth",
   initialState,
   reducers: {
     setSubmit: (state, action) => {
@@ -51,5 +51,5 @@ const periodSlice = createSlice({
       });
   },
 });
-export const { setSubmit } = periodSlice.actions;
-export const periodInfoReducer = periodSlice.reducer;
+export const { setSubmit } = authSlice.actions;
+export const authReducer = authSlice.reducer;
