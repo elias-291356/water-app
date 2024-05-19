@@ -12,7 +12,7 @@ import {
 import storage from "redux-persist/lib/storage";
 // import { combineReducers } from "redux";
 
-import { periodInfoReducer } from "./authReducer";
+import { authReducer } from "./authReducer";
 
 const userPersistConfig = {
   key: "user",
@@ -22,7 +22,7 @@ const userPersistConfig = {
 
 export const store = configureStore({
   reducer: {
-    period: persistReducer(userPersistConfig, periodInfoReducer),
+    auth: persistReducer(userPersistConfig, authReducer),
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

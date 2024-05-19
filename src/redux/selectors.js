@@ -1,2 +1,2 @@
-export const selectIsLogin = (state) => state.period.isLogin;
-export const selectToken = (state) => state.period.token;
+export const selectIsLogin = (state) => state.auth.isLogin;
+export const selectToken = (state) => state.auth.token;
