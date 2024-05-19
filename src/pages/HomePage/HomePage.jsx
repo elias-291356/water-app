@@ -1,4 +1,5 @@
 import React from "react";
+import SettingModal from "../../modals/SettingModal/SettingModal";
 // import { Outlet } from "react-router-dom";
 // import Header from "../../components/Header/Header";
 
@@ -8,6 +9,7 @@ const HomePage = () => {
       HomePage private route
       {/* <Header />
       <Outlet /> */}
+      <SettingModal />
     </div>
   );
 };
