@@ -9,19 +9,11 @@ const Logo = () => {
 
   return (
     <li>
-      {isLogin ? (
-        <Link to="/home">
-          <StyledLogo>
-            <use href={`${sprite}#icon-logo`}></use>
-          </StyledLogo>
-        </Link>
-      ) : (
-        <Link to="/">
-          <StyledLogo>
-            <use href={`${sprite}#icon-logo`}></use>
-          </StyledLogo>
-        </Link>
-      )}
+      <Link to="/">
+        <StyledLogo>
+          <use href={`${sprite}#icon-logo`}></use>
+        </StyledLogo>
+      </Link>
     </li>
   );
 };

@@ -38,7 +38,7 @@ const SignupPage = () => {
 
   useEffect(() => {
     if (!isLogin) return;
-    navigate("/home", { replace: true });
+    navigate("/", { replace: true });
   }, [isLogin]);
 
   const onSubmit = (data) => {
