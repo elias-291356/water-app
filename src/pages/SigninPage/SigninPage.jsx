@@ -21,15 +21,10 @@ import { StyledALoginGoogle, StyledInputInput } from "./SigninPageStyled";
 import { BASE_URL } from "../../service/api";
 import { loginThunk } from "../../redux/thunk";
 import { selectIsLogin } from "../../redux/selectors";
-import { toast } from "react-toastify";
+// import { toast } from "react-toastify";
 const SignupPage = () => {
   const [showPassword, setShowPassword] = useState(false);
   const dispatch = useDispatch();
-  const isLogin = useSelector(selectIsLogin);
-
-  if (isLogin === true) {
-    toast.success("Welcome");
-  }
 
   const {
     reset,
@@ -50,7 +45,6 @@ const SignupPage = () => {
   };
   return (
     <>
-      <Header />
       <StyledFormWrapper>
         <StyledSignUpTitle>Sign In</StyledSignUpTitle>
         <StyledForm onSubmit={handleSubmit(onSubmit)}>

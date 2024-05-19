@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import AuthForm from "../../components/AuthForm/AuthForm";
 import Header from "../../components/Header/Header";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import sprite from "../../images/sprite.svg";
 import { registerThunk } from "../../redux/thunk";
@@ -19,9 +19,14 @@ import {
   StyledInputConfirm,
   StyledInputPassword,
 } from "./SignupPageStyled";
+import { useNavigate } from "react-router-dom";
+import { selectIsLogin } from "../../redux/selectors";
+import { useEffect } from "react";
 
 const SignupPage = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { register, handleSubmit, reset } = useForm();
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [isValidBorderEmail, setIsValidBorderEmail] = useState(" ");
@@ -29,7 +34,12 @@ const SignupPage = () => {
   const [isValidBorderConfirm, setIsValidBorderConfirm] = useState(" ");
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const { register, handleSubmit, reset } = useForm();
+  const isLogin = useSelector(selectIsLogin);
+
+  useEffect(() => {
+    if (!isLogin) return;
+    navigate("/home", { replace: true });
+  }, [isLogin]);
 
   const onSubmit = (data) => {
     if (data.password !== data.confirmPassword) {
@@ -89,7 +99,6 @@ const SignupPage = () => {
   };
   return (
     <>
-      <Header />
       <StyledFormWrapper>
         <StyledSignUpTitle>Sign Up</StyledSignUpTitle>
         <ErrorMessage>{emailError}</ErrorMessage>
