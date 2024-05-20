@@ -52,8 +52,8 @@ export const StyledInputInputModal = styled.input`
 `;
 export const StyledLabelModal = styled.label`
   font-weight: 400;
-  font-size: 18px;
-  line-height: 1.33333;
+  font-size: 16px;
+  line-height: 1.25;
 `;
 export const StyledModalForm = styled.form`
   display: flex;
@@ -180,4 +180,24 @@ export const StyledModalFormButton = styled.button`
   line-height: 1.25;
   text-align: center;
   color: var(--primary-white);
+`;
+export const StyledWrapPasswords = styled.div`
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+  padding-bottom: 24px;
+`;
+export const StyledWrapEmailAndName = styled.div`
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+`;
+export const StyledSubTitle = styled.h2`
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.11111;
+  padding-bottom: 12px;
+`;
+export const StyledGenderIdentityWrap = styled.div`
+  padding-bottom: 24px;
 `;
