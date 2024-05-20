@@ -68,7 +68,7 @@ export const StyledModalForm = styled.form`
   flex-direction: column;
 
   @media screen and (min-width: 1280px) {
-    flex-direction: row;
+    row-gap: 24px;
   }
 `;
 
@@ -201,7 +201,6 @@ export const StyledModalFormButton = styled.button`
     width: 160px;
   }
   @media screen and (min-width: 1280px) {
-    margin-top: auto;
   }
 `;
 export const StyledWrapPasswords = styled.div`
@@ -230,5 +229,11 @@ export const StyledGenderIdentityWrap = styled.div`
   padding-bottom: 24px;
   @media screen and (min-width: 1280px) {
     padding-bottom: 0px;
+  }
+`;
+export const StyledMainRormWrap = styled.div`
+  @media screen and (min-width: 1280px) {
+    display: flex;
+    column-gap: 24px;
   }
 `;
