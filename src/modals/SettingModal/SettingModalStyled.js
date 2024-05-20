@@ -12,6 +12,7 @@ export const StyledUploadUserPhoto = styled.button`
 export const StyledUploadUserPhotoSvg = styled.svg`
   width: 16px;
   height: 16px;
+  fill: var(--primary-blue);
 `;
 export const StyledUserPhotoWrap = styled.ul`
   display: flex;
@@ -48,7 +49,6 @@ export const StyledInputInputModal = styled.input`
   }
 
   @media screen and (min-width: 768px) {
-    width: 336px;
   }
 `;
 export const StyledLabelModal = styled.label`
@@ -68,7 +68,6 @@ export const StyledWrapInputNew = styled.div`
   width: 256px;
 
   @media screen and (min-width: 768px) {
-    width: 336px;
   }
 
   @media screen and (min-width: 1280px) {
@@ -88,11 +87,9 @@ export const StyledInputPasswordNew = styled.input`
     color: var(--secondary-blue);
   }
   @media screen and (min-width: 768px) {
-    width: 336px;
   }
 
   @media screen and (min-width: 1280px) {
-    width: 384px;
   }
 `;
 export const StyledWrapInputOutdated = styled.div`
@@ -100,7 +97,6 @@ export const StyledWrapInputOutdated = styled.div`
   width: 256px;
 
   @media screen and (min-width: 768px) {
-    width: 336px;
   }
 
   @media screen and (min-width: 1280px) {
@@ -120,11 +116,9 @@ export const StyledInputPasswordOutdated = styled.input`
     color: var(--secondary-blue);
   }
   @media screen and (min-width: 768px) {
-    width: 336px;
   }
 
   @media screen and (min-width: 1280px) {
-    width: 384px;
   }
 `;
 export const StyledWrapInputRepeat = styled.div`
@@ -132,7 +126,6 @@ export const StyledWrapInputRepeat = styled.div`
   width: 256px;
 
   @media screen and (min-width: 768px) {
-    width: 336px;
   }
 
   @media screen and (min-width: 1280px) {
@@ -152,11 +145,9 @@ export const StyledInputConfirmRepeat = styled.input`
     color: var(--secondary-blue);
   }
   @media screen and (min-width: 768px) {
-    width: 336px;
   }
 
   @media screen and (min-width: 1280px) {
-    width: 384px;
   }
 `;
 
