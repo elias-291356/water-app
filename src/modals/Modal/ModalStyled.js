@@ -39,7 +39,7 @@ export const ModalHeaderTitle = styled.h2`
   font-size: 26px;
   line-height: 1.23077;
   color: var(--primary-black);
-  padding-bottom: 24px;
+  padding-bottom: 8px;
 `;
 
 export const CloseButton = styled.button`

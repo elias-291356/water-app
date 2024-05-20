@@ -17,6 +17,7 @@ export const StyledUserPhotoWrap = styled.ul`
   display: flex;
   align-items: center;
   column-gap: 8px;
+  padding-bottom: 24px;
 `;
 export const StyledUserPhotoItem = styled.li`
   border-radius: 100%;
@@ -162,10 +163,14 @@ export const StyledInputConfirmRepeat = styled.input`
 // ==========================
 export const StyledGenderRadioButtons = styled.div`
   display: flex;
+  width: 180px;
+  column-gap: 24px;
 `;
 export const StyledGenderHuman = styled.div`
   display: flex;
   flex-direction: row-reverse;
+  column-gap: 3px;
+  padding-bottom: 24px;
 `;
 export const StyledModalFormButton = styled.button`
   border-radius: 10px;
