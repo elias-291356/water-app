@@ -22,7 +22,6 @@ import {
   StyledSvgIconShowPassword,
   StyledWrapInput,
 } from "../../pages/SignupPage/SignupPageStyled";
-
 const SettingModal = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [modal, setModal] = useState(false);
@@ -131,7 +130,7 @@ const SettingModal = () => {
                 <StyledInputPasswordNew
                   name="newPassword"
                   type={showNewPassword ? "text" : "password"}
-                  placeholder="new password"
+                  placeholder="Password"
                   {...register("newPassword", {})}
                 />
                 <StyledSvgIconShowPassword onClick={toggleNewPassword}>
@@ -140,12 +139,13 @@ const SettingModal = () => {
                   ></use>
                 </StyledSvgIconShowPassword>
               </StyledWrapInputNew>
+              <p>Repeat new password:</p>
               <StyledWrapInput>
                 <StyledInputConfirm
                   // $isValidBorderConfirm={isValidBorderConfirm}
                   name="confirmPassword"
                   type={showConfirmPassword ? "text" : "password"}
-                  placeholder="Repeat password"
+                  placeholder="Password"
                   {...register("confirmPassword")}
                 />
                 <StyledSvgIconShowPassword
