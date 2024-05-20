@@ -4,8 +4,11 @@ import sprite from "../../images/sprite.svg";
 import { useForm } from "react-hook-form";
 
 import {
+  StyledGenderRadioButtons,
+  StyledInputConfirmRepeat,
   StyledInputInputModal,
   StyledInputPasswordNew,
+  StyledInputPasswordOutdated,
   StyledItemSvgAndButton,
   StyledLabelModal,
   StyledModalForm,
@@ -15,6 +18,10 @@ import {
   StyledUserPhotoItem,
   StyledUserPhotoWrap,
   StyledWrapInputNew,
+  StyledWrapInputOutdated,
+  StyledWrapInputRepeat,
+  StyledGenderHuman,
+  StyledModalFormButton,
 } from "./SettingModalStyled";
 import {
   StyledInputConfirm,
@@ -68,28 +75,44 @@ const SettingModal = () => {
           </StyledItemSvgAndButton>
         </StyledUserPhotoWrap>
         <div>
+          {/* 
+
+
+
+ */}
+
           <h2>Your gender identity</h2>
           <StyledModalForm onSubmit={handleSubmit(onSubmit)}>
             <div>
-              <input
-                name="gender"
-                type="radio"
-                value="Man"
-                {...register("gender", {
-                  required: true,
-                })}
-              />
-              <StyledLabelModal>Man</StyledLabelModal>
+              <StyledGenderRadioButtons>
+                <StyledGenderHuman>
+                  <StyledLabelModal>Man</StyledLabelModal>
+                  <input
+                    name="gender"
+                    type="radio"
+                    value="Man"
+                    {...register("gender", {
+                      required: true,
+                    })}
+                  />
+                </StyledGenderHuman>
 
-              <input
-                name="gender"
-                type="radio"
-                value="Woman"
-                {...register("gender", {
-                  required: true,
-                })}
-              />
-              <StyledLabelModal>Woman</StyledLabelModal>
+                <StyledGenderHuman>
+                  <StyledLabelModal>Woman</StyledLabelModal>
+                  <input
+                    name="gender"
+                    type="radio"
+                    value="Woman"
+                    {...register("gender", {
+                      required: true,
+                    })}
+                  />
+                </StyledGenderHuman>
+              </StyledGenderRadioButtons>
+
+              {/*
+               */}
+
               <StyledLabelModal>Enter your name</StyledLabelModal>
               <StyledInputInputModal
                 name="username"
@@ -111,9 +134,10 @@ const SettingModal = () => {
             </div>
             <div>
               <StyledLabelModal>Password</StyledLabelModal>
+
               <p>Outdated password:</p>
-              <StyledWrapInput>
-                <StyledInputPassword
+              <StyledWrapInputOutdated>
+                <StyledInputPasswordOutdated
                   name="password"
                   type={showPassword ? "text" : "password"}
                   placeholder="Password"
@@ -124,7 +148,8 @@ const SettingModal = () => {
                     href={`${sprite}#icon-${showPassword ? "show" : "hide"}`}
                   ></use>
                 </StyledSvgIconShowPassword>
-              </StyledWrapInput>
+              </StyledWrapInputOutdated>
+
               <p>New password:</p>
               <StyledWrapInputNew>
                 <StyledInputPasswordNew
@@ -139,9 +164,10 @@ const SettingModal = () => {
                   ></use>
                 </StyledSvgIconShowPassword>
               </StyledWrapInputNew>
+
               <p>Repeat new password:</p>
-              <StyledWrapInput>
-                <StyledInputConfirm
+              <StyledWrapInputRepeat>
+                <StyledInputConfirmRepeat
                   // $isValidBorderConfirm={isValidBorderConfirm}
                   name="confirmPassword"
                   type={showConfirmPassword ? "text" : "password"}
@@ -157,9 +183,9 @@ const SettingModal = () => {
                     }`}
                   ></use>
                 </StyledSvgIconShowPassword>
-              </StyledWrapInput>
+              </StyledWrapInputRepeat>
             </div>
-            <button type="submit">Submit</button>
+            <StyledModalFormButton type="submit">Submit</StyledModalFormButton>
           </StyledModalForm>
         </div>
       </Modal>
