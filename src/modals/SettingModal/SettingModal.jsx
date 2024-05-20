@@ -22,6 +22,10 @@ import {
   StyledWrapInputRepeat,
   StyledGenderHuman,
   StyledModalFormButton,
+  StyledWrapPasswords,
+  StyledWrapEmailAndName,
+  StyledSubTitle,
+  StyledGenderIdentityWrap,
 } from "./SettingModalStyled";
 import {
   StyledInputConfirm,
@@ -81,9 +85,9 @@ const SettingModal = () => {
 
  */}
 
-          <h2>Your gender identity</h2>
+          <StyledSubTitle>Your gender identity</StyledSubTitle>
           <StyledModalForm onSubmit={handleSubmit(onSubmit)}>
-            <div>
+            <StyledGenderIdentityWrap>
               <StyledGenderRadioButtons>
                 <StyledGenderHuman>
                   <StyledLabelModal>Man</StyledLabelModal>
@@ -112,29 +116,29 @@ const SettingModal = () => {
 
               {/*
                */}
-
-              <StyledLabelModal>Enter your name</StyledLabelModal>
-              <StyledInputInputModal
-                name="username"
-                type="text"
-                placeholder="David"
-                {...register("username", {
-                  required: true,
-                })}
-              />
-              <StyledLabelModal>Enter your email</StyledLabelModal>
-              <StyledInputInputModal
-                name="email"
-                type="email"
-                placeholder="E-mail"
-                {...register("email", {
-                  required: true,
-                })}
-              />
-            </div>
-            <div>
-              <StyledLabelModal>Password</StyledLabelModal>
-
+              <StyledWrapEmailAndName>
+                <StyledLabelModal>Your name</StyledLabelModal>
+                <StyledInputInputModal
+                  name="username"
+                  type="text"
+                  placeholder="David"
+                  {...register("username", {
+                    required: true,
+                  })}
+                />
+                <StyledLabelModal>Your email</StyledLabelModal>
+                <StyledInputInputModal
+                  name="email"
+                  type="email"
+                  placeholder="E-mail"
+                  {...register("email", {
+                    required: true,
+                  })}
+                />
+              </StyledWrapEmailAndName>
+            </StyledGenderIdentityWrap>
+            <StyledSubTitle>Password</StyledSubTitle>
+            <StyledWrapPasswords>
               <p>Outdated password:</p>
               <StyledWrapInputOutdated>
                 <StyledInputPasswordOutdated
@@ -184,7 +188,7 @@ const SettingModal = () => {
                   ></use>
                 </StyledSvgIconShowPassword>
               </StyledWrapInputRepeat>
-            </div>
+            </StyledWrapPasswords>
             <StyledModalFormButton type="submit">Submit</StyledModalFormButton>
           </StyledModalForm>
         </div>
