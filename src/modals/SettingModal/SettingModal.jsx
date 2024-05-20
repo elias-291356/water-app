@@ -85,9 +85,9 @@ const SettingModal = () => {
 
  */}
 
-          <StyledSubTitle>Your gender identity</StyledSubTitle>
           <StyledModalForm onSubmit={handleSubmit(onSubmit)}>
             <StyledGenderIdentityWrap>
+              <StyledSubTitle>Your gender identity</StyledSubTitle>
               <StyledGenderRadioButtons>
                 <StyledGenderHuman>
                   <StyledLabelModal>Man</StyledLabelModal>
@@ -137,8 +137,9 @@ const SettingModal = () => {
                 />
               </StyledWrapEmailAndName>
             </StyledGenderIdentityWrap>
-            <StyledSubTitle>Password</StyledSubTitle>
             <StyledWrapPasswords>
+              {/* <h3>Password</h3> */}
+              <StyledSubTitle>Password</StyledSubTitle>
               <p>Outdated password:</p>
               <StyledWrapInputOutdated>
                 <StyledInputPasswordOutdated
