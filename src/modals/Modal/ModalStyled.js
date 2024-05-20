@@ -28,6 +28,14 @@ export const ModalBox = styled.div`
   background-color: var(--primary-white);
   backdrop-filter: blur(5px);
   box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.2);
+  @media screen and (min-width: 768px) {
+    padding: 32px 24px;
+    width: 704px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 1008px;
+  }
 `;
 
 export const ModalHeader = styled.header`
