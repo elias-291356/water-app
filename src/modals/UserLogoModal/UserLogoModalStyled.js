@@ -28,7 +28,6 @@ export const StyledDropdownMenu = styled(Dropdown.Menu)`
 `;
 
 export const StyledDropdownItem = styled(Dropdown.Item)`
-  font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.25;

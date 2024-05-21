@@ -12,12 +12,22 @@ import {
 import sprite from "../../images/sprite.svg";
 import { useState } from "react";
 
-const UserLogoModal = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  console.log(isOpen);
+import SettingModal from "../../modals/SettingModal/SettingModal";
 
+const UserLogoModal = () => {
+  const [isSettingModalOpen, setIsSettingModalOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const toggleDropdown = () => {
-    setIsOpen(!isOpen);
+    setIsOpen(true);
+    console.log("test");
+  };
+  const openSettingModal = () => {
+    setIsSettingModalOpen(true);
+  };
+
+  const closeSettingModal = () => {
+    setIsSettingModalOpen(false);
+    setIsOpen(false);
   };
 
   return (
@@ -34,7 +44,9 @@ const UserLogoModal = () => {
             <StyledHeaderUserSelectIcon>
               <use href={`${sprite}#icon-tools`}></use>
             </StyledHeaderUserSelectIcon>
-            <StyledDropdownItem>Setting</StyledDropdownItem>
+            <StyledDropdownItem onClick={openSettingModal}>
+              Setting
+            </StyledDropdownItem>
           </StyledWrapSelectUserItem>
 
           <StyledWrapSelectUserItem>
@@ -44,6 +56,9 @@ const UserLogoModal = () => {
             <StyledDropdownItem>Log out</StyledDropdownItem>
           </StyledWrapSelectUserItem>
         </StyledDropdownMenu>
+      )}
+      {isSettingModalOpen && (
+        <SettingModal show={isSettingModalOpen} close={closeSettingModal} />
       )}
     </Dropdown>
   );

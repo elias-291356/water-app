@@ -39,7 +39,7 @@ $instance.interceptors.response.use(
 //Auth Controller
 export const loginRequest = async (formData) => {
   const { data } = await $instance.post("/api/auth/signin", formData);
-  setToken(data.accessToken);
+  setToken(data.token);
   localStorage.setItem("refreshToken", data.refreshToken);
   console.log(data);
   return data;
