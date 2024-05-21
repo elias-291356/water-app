@@ -34,12 +34,12 @@ import {
   StyledSvgIconShowPassword,
   StyledWrapInput,
 } from "../../pages/SignupPage/SignupPageStyled";
-const SettingModal = () => {
+const SettingModal = ({ show, close }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [modal, setModal] = useState(false);
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const toggleModal = () => setModal(!modal);
+  // const toggleModal = () => setModal(!modal);
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
@@ -59,12 +59,13 @@ const SettingModal = () => {
   const onSubmit = (data) => {
     console.log(data);
     reset();
+    close();
   };
 
   return (
     <div className="App">
-      <button onClick={toggleModal}>Modal</button>
-      <Modal show={modal} close={toggleModal}>
+      {/* <button onClick={toggleModal}>Setting</button> */}
+      <Modal show={show} close={close}>
         <StyledSubtitleModal>Your photo</StyledSubtitleModal>
         <StyledUserPhotoWrap>
           <StyledUserPhotoItem>

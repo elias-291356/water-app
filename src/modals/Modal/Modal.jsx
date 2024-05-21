@@ -43,7 +43,7 @@ const Modal = ({ show, close, children }) => {
           </CloseButton>
         </ModalHeader>
         <ModalContent>{children}</ModalContent>
-        <ModalFooter></ModalFooter>
+        {/* <ModalFooter></ModalFooter> */}
       </ModalBox>
     </ModalContainer>,
     document.getElementById("modal")
