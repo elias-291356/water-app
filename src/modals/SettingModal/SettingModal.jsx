@@ -64,8 +64,7 @@ const SettingModal = ({ show, close }) => {
 
   return (
     <div className="App">
-      {/* <button onClick={toggleModal}>Setting</button> */}
-      <Modal show={show} close={close}>
+      <Modal show={show} close={close} title="Settings">
         <StyledSubtitleModal>Your photo</StyledSubtitleModal>
         <StyledUserPhotoWrap>
           <StyledUserPhotoItem>
