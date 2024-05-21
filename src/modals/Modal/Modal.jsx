@@ -1,29 +1,35 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import {
   ModalContainer,
   ModalBox,
   ModalHeader,
   ModalHeaderTitle,
   CloseButton,
-  ModalFooter,
-  SubmitButton,
-  CancelButton,
   ModalContent,
   StyledModalCloseSvg,
 } from "../Modal/ModalStyled";
 import { createPortal } from "react-dom";
 import sprite from "../../images/sprite.svg";
+const Modal = ({ show, close, children, title }) => {
+  const modalRef = useRef(null);
 
-const Modal = ({ show, close, children }) => {
   useEffect(() => {
-    const handleEscape = (event) => {
-      if (event.key === "Escape") {
-        close();
-      }
-    };
+    if (show) {
+      modalRef.current.focus();
+    }
+  }, [show]);
 
+  const handleEscape = (event) => {
+    if (event.key === "Escape") {
+      close();
+    }
+  };
+
+  useEffect(() => {
     if (show) {
       window.addEventListener("keydown", handleEscape);
+    } else {
+      window.removeEventListener("keydown", handleEscape);
     }
 
     return () => {
@@ -33,9 +39,13 @@ const Modal = ({ show, close, children }) => {
 
   return createPortal(
     <ModalContainer className={show ? "show" : ""} onClick={close}>
-      <ModalBox onClick={(e) => e.stopPropagation()}>
+      <ModalBox
+        onClick={(e) => e.stopPropagation()}
+        ref={modalRef}
+        tabIndex={-1}
+      >
         <ModalHeader>
-          <ModalHeaderTitle>Setting</ModalHeaderTitle>
+          <ModalHeaderTitle>{title}</ModalHeaderTitle>
           <CloseButton onClick={close}>
             <StyledModalCloseSvg>
               <use href={`${sprite}#icon-close`}></use>
