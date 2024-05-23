@@ -46,7 +46,7 @@ export const loginRequest = async (formData) => {
 };
 export const registerRequest = async (formData) => {
   const { data } = await $instance.post("/api/auth/signup", formData);
-
+  console.log(data);
   setToken(data.accessToken);
   return data;
 };

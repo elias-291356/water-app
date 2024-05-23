@@ -40,6 +40,7 @@ const SettingModal = ({ show, close }) => {
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   // const toggleModal = () => setModal(!modal);
+  console.log("update");
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
