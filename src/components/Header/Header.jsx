@@ -1,4 +1,5 @@
 import React from "react";
+import { useEffect } from "react";
 import Logo from "../Logo/Logo";
 import UserAuth from "../UserAuth/UserAuth";
 import { StyledHeaderList } from "./HeaderStyled.js";

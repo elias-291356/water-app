@@ -36,10 +36,10 @@ const SignupPage = () => {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const isLogin = useSelector(selectIsLogin);
 
-  useEffect(() => {
-    if (!isLogin) return;
-    navigate("/", { replace: true });
-  }, [isLogin]);
+  // useEffect(() => {
+  //   if (!isLogin) return;
+  //   navigate("/", { replace: true });
+  // }, [isLogin]);
 
   const onSubmit = (data) => {
     if (data.password !== data.confirmPassword) {

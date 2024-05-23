@@ -7,19 +7,22 @@ import HomePage from "./pages/HomePage/HomePage";
 import PublicRoute from "./components/PublicRoute/PublicRoute";
 import WelcomePage from "./pages/WelcomePage/WelcomePage";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import { useSelector } from "react-redux";
+import { selectIsLogin } from "./redux/selectors";
 
 function App() {
+  const isLogin = useSelector(selectIsLogin);
   return (
     <>
       <Routes>
         <Route path="/" element={<SharedLayout />}>
+          {/* <Route index element={<WelcomePage />} /> */}
           <Route element={<PrivateRoute />}>
             <Route index element={<HomePage />} />
+            {/* <Route path="home" element={<HomePage />} /> */}
             {/* <Route path="/" element={<HomePage />} /> */}
           </Route>
-
           <Route element={<PublicRoute />}>
-            <Route index element={<WelcomePage />} />
             <Route path="signup" element={<SignupPage />} />
             <Route path="signin" element={<SigninPage />} />
           </Route>

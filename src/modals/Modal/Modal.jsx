@@ -14,26 +14,20 @@ const Modal = ({ show, close, children, title }) => {
   const modalRef = useRef(null);
 
   useEffect(() => {
+    const handleEscape = (event) => {
+      if (event.key === "Escape") {
+        close();
+      }
+    };
     if (show) {
       modalRef.current.focus();
-    }
-  }, [show]);
-
-  const handleEscape = (event) => {
-    if (event.key === "Escape") {
-      close();
-    }
-  };
-
-  useEffect(() => {
-    if (show) {
       window.addEventListener("keydown", handleEscape);
-    } else {
-      window.removeEventListener("keydown", handleEscape);
+      document.body.style.overflow = "hidden";
     }
 
     return () => {
       window.removeEventListener("keydown", handleEscape);
+      document.body.style.overflow = "visible";
     };
   }, [show, close]);
 
