@@ -4,11 +4,19 @@ import sprite from "../../images/sprite.svg";
 import Typography from "@mui/material/Typography";
 import {
   StyledBox,
+  StyledTitle,
   StyledButtonAddWater,
   StyledWrapWatterButton,
   StyledSlider,
+  StyledCountWatter,
+  StyledBannerSvg,
+  StyledDailyNorma,
   StyledSvgAddWatter,
-  StyledBanner,
+  StyledWaterSlider,
+  StyledDay,
+  StyledEditWatter,
+  StyledButtonEdit,
+  StyledSectionHomePage,
 } from "./HomePageStyled";
 const HomePage = () => {
   const MAX = 100;
@@ -34,17 +42,19 @@ const HomePage = () => {
     },
   ];
   return (
-    <section>
-      <div>
-        <h2>My daily norma</h2>
-        <div>
-          <p>1.5L</p>
-          <p>Edit</p>
-        </div>
-      </div>
-      <StyledBanner></StyledBanner>
-      <div>
-        <p>Today</p>
+    <StyledSectionHomePage>
+      <StyledDailyNorma>
+        <StyledTitle>My daily norma</StyledTitle>
+        <StyledEditWatter>
+          <StyledCountWatter>2.0L</StyledCountWatter>
+          <StyledButtonEdit type="button">Edit</StyledButtonEdit>
+        </StyledEditWatter>
+      </StyledDailyNorma>
+      <StyledBannerSvg>
+        <use href={`${sprite}#icon-background-bottle`}></use>
+      </StyledBannerSvg>
+      <StyledWaterSlider>
+        <StyledDay>Today</StyledDay>
         <StyledBox>
           <StyledSlider
             marks={marks}
@@ -59,7 +69,7 @@ const HomePage = () => {
             sx={{
               display: "flex",
               justifyContent: "space-between",
-              width: "280px",
+              width: "270px",
             }}
           >
             <Typography
@@ -72,7 +82,7 @@ const HomePage = () => {
             <Typography
               variant="body2"
               onClick={() => setVal(MEDIUM)}
-              sx={{ cursor: "pointer" }}
+              sx={{ cursor: "pointer", fontSize: "16px", fontWeight: "500" }}
             >
               {MEDIUM} %
             </Typography>
@@ -91,8 +101,8 @@ const HomePage = () => {
           </StyledSvgAddWatter>
           <StyledButtonAddWater type="button">Add Water</StyledButtonAddWater>
         </StyledWrapWatterButton>
-      </div>
-    </section>
+      </StyledWaterSlider>
+    </StyledSectionHomePage>
   );
 };
 
