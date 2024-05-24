@@ -22,7 +22,6 @@ export const ModalContainer = styled.div`
 
 export const ModalBox = styled.div`
   width: 280px;
-  /* height: 852px; */
   padding: 32px 12px;
   border-radius: 10px;
   background-color: var(--primary-white);
@@ -35,6 +34,22 @@ export const ModalBox = styled.div`
 
   @media screen and (min-width: 1280px) {
     width: 1008px;
+  }
+`;
+export const ModalSecondBox = styled.div`
+  width: 280px;
+  padding: 32px 12px;
+  border-radius: 10px;
+  background-color: var(--primary-white);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.2);
+  @media screen and (min-width: 768px) {
+    padding: 32px 24px;
+    width: 704px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 592px;
   }
 `;
 

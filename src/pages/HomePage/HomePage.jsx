@@ -18,11 +18,13 @@ import {
   StyledButtonEdit,
   StyledSectionHomePage,
 } from "./HomePageStyled";
+import DailyNorma from "../../modals/DailyNorma/DailyNorma";
+import { useState } from "react";
 const HomePage = () => {
+  const [showModal, setShowModal] = useState(false);
   const MAX = 100;
   const MIN = 0;
   const MEDIUM = 50;
-
   const [val, setVal] = React.useState(MIN);
   const handleChange = (_, newValue) => {
     setVal(newValue);
@@ -41,13 +43,23 @@ const HomePage = () => {
       // label: "100%",
     },
   ];
+
+  const openEditModal = () => {
+    setShowModal(true);
+  };
+
+  const closeEditModal = () => {
+    setShowModal(false);
+  };
   return (
     <StyledSectionHomePage>
       <StyledDailyNorma>
         <StyledTitle>My daily norma</StyledTitle>
         <StyledEditWatter>
           <StyledCountWatter>2.0L</StyledCountWatter>
-          <StyledButtonEdit type="button">Edit</StyledButtonEdit>
+          <StyledButtonEdit type="button" onClick={openEditModal}>
+            Edit
+          </StyledButtonEdit>
         </StyledEditWatter>
       </StyledDailyNorma>
       <StyledBannerSvg>
@@ -102,6 +114,7 @@ const HomePage = () => {
           <StyledButtonAddWater type="button">Add Water</StyledButtonAddWater>
         </StyledWrapWatterButton>
       </StyledWaterSlider>
+      <DailyNorma show={showModal} close={closeEditModal} />
     </StyledSectionHomePage>
   );
 };

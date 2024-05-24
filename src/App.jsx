@@ -5,13 +5,14 @@ import SignupPage from "./pages/SignupPage/SignupPage";
 import SigninPage from "./pages/SigninPage/SigninPage";
 import HomePage from "./pages/HomePage/HomePage";
 import PublicRoute from "./components/PublicRoute/PublicRoute";
-import WelcomePage from "./pages/WelcomePage/WelcomePage";
+// import WelcomePage from "./pages/WelcomePage/WelcomePage";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
-import { useSelector } from "react-redux";
-import { selectIsLogin } from "./redux/selectors";
+// import { useSelector } from "react-redux";
+// import { selectIsLogin } from "./redux/selectors";
+// import DailyNorma from "./modals/DailyNorma/DailyNorma";
+// import { useState } from "react";
 
 function App() {
-  const isLogin = useSelector(selectIsLogin);
   return (
     <>
       <Routes>
