@@ -68,8 +68,14 @@ export const StyledInput = styled.input`
   padding: 12px 10px;
   width: 256px;
   height: 44px;
+  color: var(--primary-blue);
   border: 1px solid var(--secondary-light-sky);
+  font-size: 16px;
+  &::placeholder {
+    color: var(--primary-blue);
+  }
 `;
+
 export const StyledReactFormButton = styled.button`
   border-radius: 10px;
   border: none;

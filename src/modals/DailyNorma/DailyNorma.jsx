@@ -69,7 +69,7 @@ const DailyNorma = ({ show, close }) => {
             <StyledCalculateLabel>
               Your weight in kilograms:
               <StyledInput
-                type="number"
+                type="text"
                 placeholder="0"
                 {...register("weight")}
               />
@@ -78,7 +78,7 @@ const DailyNorma = ({ show, close }) => {
               The time of active participation in sports or other activities
               with a high physical. load in hours:
               <StyledInput
-                type="number"
+                type="text"
                 placeholder="0"
                 {...register("usedTime")}
               />

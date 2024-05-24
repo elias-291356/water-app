@@ -36,11 +36,8 @@ import {
 } from "../../pages/SignupPage/SignupPageStyled";
 const SettingModal = ({ show, close }) => {
   const [showPassword, setShowPassword] = useState(false);
-  const [modal, setModal] = useState(false);
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  // const toggleModal = () => setModal(!modal);
-  console.log("update");
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
