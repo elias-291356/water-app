@@ -7,7 +7,9 @@ import {
   CloseButton,
   ModalContent,
   StyledModalCloseSvg,
+  ModalSecondBox,
 } from "../Modal/ModalStyled";
+import DailyNorma from "../DailyNorma/DailyNorma";
 import { createPortal } from "react-dom";
 import sprite from "../../images/sprite.svg";
 const Modal = ({ show, close, children, title }) => {
@@ -31,24 +33,48 @@ const Modal = ({ show, close, children, title }) => {
     };
   }, [show, close]);
 
+  const isDailyNorma = React.Children.toArray(children).some(
+    (child) =>
+      React.isValidElement(child) && child._owner.type.name === "DailyNorma"
+  );
+
   return createPortal(
     <ModalContainer className={show ? "show" : ""} onClick={close}>
-      <ModalBox
-        onClick={(e) => e.stopPropagation()}
-        ref={modalRef}
-        tabIndex={-1}
-      >
-        <ModalHeader>
-          <ModalHeaderTitle>{title}</ModalHeaderTitle>
-          <CloseButton onClick={close}>
-            <StyledModalCloseSvg>
-              <use href={`${sprite}#icon-close`}></use>
-            </StyledModalCloseSvg>
-          </CloseButton>
-        </ModalHeader>
-        <ModalContent>{children}</ModalContent>
-        {/* <ModalFooter></ModalFooter> */}
-      </ModalBox>
+      {isDailyNorma ? (
+        <ModalSecondBox
+          onClick={(e) => e.stopPropagation()}
+          ref={modalRef}
+          tabIndex={-1}
+        >
+          <ModalHeader>
+            <ModalHeaderTitle>{title}</ModalHeaderTitle>
+            <CloseButton onClick={close}>
+              <StyledModalCloseSvg>
+                <use href={`${sprite}#icon-close`}></use>
+              </StyledModalCloseSvg>
+            </CloseButton>
+          </ModalHeader>
+          <ModalContent>{children}</ModalContent>
+          {/* <ModalFooter></ModalFooter> */}
+        </ModalSecondBox>
+      ) : (
+        <ModalBox
+          onClick={(e) => e.stopPropagation()}
+          ref={modalRef}
+          tabIndex={-1}
+        >
+          <ModalHeader>
+            <ModalHeaderTitle>{title}</ModalHeaderTitle>
+            <CloseButton onClick={close}>
+              <StyledModalCloseSvg>
+                <use href={`${sprite}#icon-close`}></use>
+              </StyledModalCloseSvg>
+            </CloseButton>
+          </ModalHeader>
+          <ModalContent>{children}</ModalContent>
+          {/* <ModalFooter></ModalFooter> */}
+        </ModalBox>
+      )}
     </ModalContainer>,
     document.getElementById("modal")
   );
