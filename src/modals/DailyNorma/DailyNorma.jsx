@@ -20,15 +20,34 @@ import {
   StyledCalculateLabel,
   StyledSpanCountWater,
 } from "./DailyNormaStyled";
+import { useState } from "react";
 
 const DailyNorma = ({ show, close }) => {
+  const [requiredWater, setRequiredWater] = useState(null);
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
-  console.log(errors);
+  const onSubmit = (data) => {
+    let countWater;
+    const weight = parseInt(data.weight) || 0;
+    const time = parseInt(data.usedTime) || 0;
+
+    if (data.gender === "woman") {
+      countWater = weight * 0.03 + time * 0.4;
+    } else if (data.gender === "man") {
+      countWater = weight * 0.04 + time * 0.6;
+    } else {
+      countWater = 0;
+    }
+
+    setRequiredWater(countWater.toFixed(2));
+    console.log(data);
+    reset();
+    console.log(errors);
+  };
   return (
     <Modal show={show} close={close} title="My daily norma">
       <StyledWrapperMyDaylyNormaModal>
@@ -58,11 +77,21 @@ const DailyNorma = ({ show, close }) => {
             </Styledlegend>
             <StyledWrapLabelGender>
               <StyledGenderLable>
-                <input {...register("gender")} type="radio" value="woman" />
+                <input
+                  {...register("gender")}
+                  type="radio"
+                  value="woman"
+                  required
+                />
                 For Woman
               </StyledGenderLable>
               <StyledGenderLable>
-                <input {...register("gender")} type="radio" value="man" />
+                <input
+                  {...register("gender")}
+                  type="radio"
+                  value="man"
+                  required
+                />
                 For Man
               </StyledGenderLable>
             </StyledWrapLabelGender>
@@ -86,7 +115,7 @@ const DailyNorma = ({ show, close }) => {
           </StyledWrapperGenderWeightTime>
           <p>
             The required amount of water in liters per day:{" "}
-            <StyledSpanCountWater>1.8L</StyledSpanCountWater>
+            <StyledSpanCountWater>{requiredWater} L</StyledSpanCountWater>
           </p>
           <StyledWrapCountWater>
             <StyledWaterLabel>
