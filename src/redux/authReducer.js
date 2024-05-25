@@ -7,13 +7,14 @@ const initialState = {
   error: null,
   isLoading: false,
   myWaterNorma: null,
+  isSubmit: false,
 };
 
 const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
-    setSubmit: (state, action) => {
+    setIsSubmit: (state, action) => {
       state.isSubmit = action.payload;
     },
     setMyWaterNorma: (state, action) => {
@@ -73,6 +74,6 @@ const authSlice = createSlice({
       });
   },
 });
-export const { setSubmit, setMyWaterNorma, setClearMyWaterNorma } =
+export const { setIsSubmit, setMyWaterNorma, setClearMyWaterNorma } =
   authSlice.actions;
 export const authReducer = authSlice.reducer;
