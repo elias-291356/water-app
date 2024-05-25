@@ -12,6 +12,7 @@ import {
 import DailyNorma from "../DailyNorma/DailyNorma";
 import { createPortal } from "react-dom";
 import sprite from "../../images/sprite.svg";
+import TodayListModal from "../TodayListModal/TodayListModal";
 const Modal = ({ show, close, children, title }) => {
   const modalRef = useRef(null);
 
@@ -33,14 +34,15 @@ const Modal = ({ show, close, children, title }) => {
     };
   }, [show, close]);
 
-  const isDailyNorma = React.Children.toArray(children).some(
+  const isSecondModalBox = React.Children.toArray(children).some(
     (child) =>
-      React.isValidElement(child) && child._owner.type.name === "DailyNorma"
+      React.isValidElement(child) &&
+      (child._owner.type.name === "DailyNorma" ||
+        child._owner.type.name === "TodayListModal")
   );
-
   return createPortal(
     <ModalContainer className={show ? "show" : ""} onClick={close}>
-      {isDailyNorma ? (
+      {isSecondModalBox ? (
         <ModalSecondBox
           onClick={(e) => e.stopPropagation()}
           ref={modalRef}

@@ -64,7 +64,7 @@ const TodayListModal = ({ show, close }) => {
               </StyledWrapperInputes>
               <StyledButtonAndCountOfWater>
                 <StyledWaterAmount>250 ml</StyledWaterAmount>
-                <StyledSaveButton>save</StyledSaveButton>
+                <StyledSaveButton>Save</StyledSaveButton>
               </StyledButtonAndCountOfWater>
             </StyledWrapContainer>
           </div>
