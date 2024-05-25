@@ -59,6 +59,11 @@ export const StyledInput = styled.input`
   &::placeholder {
     color: var(--primary-blue);
   }
+  @media screen and (min-width: 768px) {
+    width: 544px;
+  }
+  @media screen and (min-width: 1280px) {
+  }
 `;
 export const StyledCorrectData = styled.div`
   display: flex;
@@ -105,6 +110,17 @@ export const StyledButtonAndCountOfWater = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 24px;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: auto;
+    width: 256px;
+  }
+  @media screen and (min-width: 1280px) {
+  }
 `;
 export const StyledSaveButton = styled.button`
   display: flex;
@@ -121,6 +137,11 @@ export const StyledSaveButton = styled.button`
   font-weight: 500;
   font-size: 16px;
   line-height: 1.25;
+  @media screen and (min-width: 768px) {
+    width: 160px;
+  }
+  @media screen and (min-width: 1280px) {
+  }
 `;
 export const StyledWaterAmount = styled.p`
   font-weight: 700;
