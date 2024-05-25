@@ -2,11 +2,20 @@ import styled from "styled-components";
 import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
 import { sliderClasses } from "@mui/material/Slider";
+import Typography from "@mui/material/Typography";
 
 export const StyledBox = styled(Box)`
   width: 256px;
   margin-left: auto;
   margin-right: auto;
+  @media screen and (min-width: 768px) {
+    margin-left: 0;
+    margin-right: 0;
+    width: 356px;
+  }
+
+  @media screen and (min-width: 1280px) {
+  }
 `;
 export const StyledButtonAddWater = styled.button`
   /* position: relative; */
@@ -23,6 +32,9 @@ export const StyledButtonAddWater = styled.button`
   line-height: 1.25;
   text-align: center;
   color: var(--primary-white);
+  @media screen and (min-width: 1280px) {
+    width: 178px;
+  }
 `;
 export const StyledSvgAddWatter = styled.svg`
   position: absolute;
@@ -32,6 +44,9 @@ export const StyledSvgAddWatter = styled.svg`
   stroke: var(--primary-white);
   top: 7px;
   left: 75px;
+  @media screen and (min-width: 1280px) {
+    left: 25px;
+  }
 `;
 // export const StyledBannerSvg = styled.div`
 /* background-image: url("src/images/bottle-bcg-mob.png");
@@ -44,6 +59,28 @@ export const StyledSvgAddWatter = styled.svg`
 export const StyledBannerSvg = styled.svg`
   width: 280px;
   height: 208px;
+  z-index: -1;
+  @media screen and (min-width: 768px) {
+    position: absolute;
+    bottom: 0px;
+    width: 520px;
+    height: 390px;
+  }
+
+  @media screen and (min-width: 1280px) {
+  }
+`;
+export const StyledWrapPosition = styled.div`
+  @media screen and (min-width: 768px) {
+    position: relative;
+    width: 520px;
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media screen and (min-width: 1280px) {
+  }
 `;
 export const StyledDailyNorma = styled.div`
   display: flex;
@@ -67,6 +104,12 @@ export const StyledSectionHomePage = styled.section`
   flex-direction: column;
   row-gap: 10px;
   width: 280px;
+  @media screen and (min-width: 768px) {
+    width: 704px;
+  }
+
+  @media screen and (min-width: 1280px) {
+  }
 `;
 export const StyledTitle = styled.h2`
   font-weight: 500;
@@ -81,7 +124,16 @@ export const StyledButtonEdit = styled.button`
   font-size: 16px;
   line-height: 1.25;
   color: var(--secondary-blue);
-  padding: 0px;
+  padding: 4px;
+  cursor: pointer;
+  /* z-index: 1; */
+  @media screen and (min-width: 768px) {
+    cursor: pointer;
+  }
+
+  @media screen and (min-width: 1280px) {
+    cursor: pointer;
+  }
 `;
 export const StyledCountWatter = styled.p`
   color: var(--primary-blue);
@@ -97,13 +149,76 @@ export const StyledWaterSlider = styled.div`
   flex-direction: column;
   row-gap: 20px;
   color: var(--primary-blue);
+  @media screen and (min-width: 768px) {
+  }
+
+  @media screen and (min-width: 1280px) {
+  }
 `;
 export const StyledDay = styled.p`
   font-weight: 400;
   font-size: 18px;
   line-height: 1.33333;
   text-align: center;
+  @media screen and (min-width: 768px) {
+    text-align: left;
+    /* font-weight: 500; */
+    font-size: 19px;
+  }
+
+  @media screen and (min-width: 1280px) {
+  }
 `;
+export const StyledWrapSliderAndButton = styled.div`
+  @media screen and (min-width: 768px) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 592px;
+  }
+`;
+export const StyledCalendarWater = styled.section`
+  border-radius: 10px;
+  border: 2px solid blue;
+  padding: 24px 8px;
+  width: 280px;
+  height: 836px;
+  box-shadow: 0 4px 14px 0 rgba(64, 123, 255, 0.3);
+  background: #ecf2ff;
+  @media screen and (min-width: 768px) {
+    width: 704px;
+    height: 688px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 592px;
+    height: 680px;
+  }
+`;
+export const StyledSectionsWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+  padding-bottom: 40px;
+  @media screen and (min-width: 768px) {
+  }
+
+  @media screen and (min-width: 1280px) {
+    display: flex;
+    flex-direction: row;
+  }
+`;
+// export const StyledTypography = styled(Typography)`
+//   @media screen and (min-width: 768px) {
+//     width: 356px;
+//   }
+
+//   @media screen and (min-width: 1280px) {
+//   }
+// `;
 
 // ===========Library settings
 export const StyledSlider = styled(Slider)(
