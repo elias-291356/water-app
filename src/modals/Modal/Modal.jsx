@@ -38,7 +38,9 @@ const Modal = ({ show, close, children, title }) => {
     (child) =>
       React.isValidElement(child) &&
       (child._owner.type.name === "DailyNorma" ||
-        child._owner.type.name === "TodayListModal")
+        child._owner.type.name === "TodayListModal" ||
+        child._owner.type.name === "Logout" ||
+        child._owner.type.name === "DeleteEntry")
   );
   return createPortal(
     <ModalContainer className={show ? "show" : ""} onClick={close}>

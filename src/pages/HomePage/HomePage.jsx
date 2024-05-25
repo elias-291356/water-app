@@ -23,9 +23,11 @@ import { useState } from "react";
 import { selectMyWaterNorma } from "../../redux/selectors";
 import { useSelector } from "react-redux";
 import TodayListModal from "../../modals/TodayListModal/TodayListModal";
+import DeleteEntry from "../../modals/DeleteEntry/DeleteEntry";
 const HomePage = () => {
   const [showModal, setShowModal] = useState(false);
   const [showTodayListModal, setShowTodayListModal] = useState(false);
+  const [showDeleteEntryModal, setShowDeleteEntryModal] = useState(false);
   const myWaterNorma = useSelector(selectMyWaterNorma);
   const MAX = 100;
   const MIN = 0;
@@ -49,6 +51,13 @@ const HomePage = () => {
 
   const closeTodayListModal = () => {
     setShowTodayListModal(false);
+  };
+  const openDeleteModal = () => {
+    setShowDeleteEntryModal(true);
+  };
+
+  const closeDeleteModal = () => {
+    setShowDeleteEntryModal(false);
   };
   return (
     <StyledSectionHomePage>
@@ -116,9 +125,14 @@ const HomePage = () => {
         </StyledWrapWatterButton>
       </StyledWaterSlider>
       <DailyNorma show={showModal} close={closeEditModal} />
+      {/* // ==================================================/// */}
       <TodayListModal show={showTodayListModal} close={closeTodayListModal} />
+      <DeleteEntry show={showDeleteEntryModal} close={closeDeleteModal} />
       <button type="button" onClick={openTodayListModal}>
         open TodayListModal
+      </button>
+      <button type="button" onClick={openDeleteModal}>
+        open TDeleteEntry
       </button>
     </StyledSectionHomePage>
   );

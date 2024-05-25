@@ -6,12 +6,6 @@ export const StyledLogoutTitle = styled.h2`
   line-height: 1.11111;
   color: var(--primary-black);
   width: 256px;
-  @media screen and (min-width: 768px) {
-    padding-top: 16px;
-  }
-
-  @media screen and (min-width: 1280px) {
-  }
 `;
 export const StyledButtonLogout = styled.button`
   border: none;
@@ -62,6 +56,7 @@ export const StyledLogoutButtons = styled.div`
     margin-left: auto;
     column-gap: 24px;
     width: 344px;
+    padding-top: 24px;
   }
 
   @media screen and (min-width: 1280px) {
