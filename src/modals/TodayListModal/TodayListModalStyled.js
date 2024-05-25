@@ -51,7 +51,7 @@ export const StyledWrapperLabels = styled.label`
   line-height: 1.25;
 `;
 export const StyledInput = styled.input`
-  border: 1px solid var(--secondary-light-sky);
+  border: 2px solid var(--secondary-light-sky);
   border-radius: 6px;
   padding: 12px 10px;
   width: 256px;
@@ -60,9 +60,10 @@ export const StyledInput = styled.input`
     color: var(--primary-blue);
   }
   @media screen and (min-width: 768px) {
-    width: 544px;
+    width: 656px;
   }
   @media screen and (min-width: 1280px) {
+    width: 544px;
   }
 `;
 export const StyledCorrectData = styled.div`
@@ -87,7 +88,7 @@ export const StyledButton = styled.button`
   display: flex;
   justify-content: center;
   background-color: transparent;
-  border: 1px solid var(--primary-blue);
+  border: 2px solid var(--primary-blue);
   border-radius: 30px;
   padding: 10px;
   width: 44px;

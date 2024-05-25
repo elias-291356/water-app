@@ -37,7 +37,7 @@ export const StyledGenderWrap = styled.div`
   }
 `;
 export const StyledDescr = styled.p`
-  border: 1px solid var(--secondary-light-sky);
+  border: 2px solid var(--secondary-light-sky);
   border-radius: 10px;
   padding: 10px;
   width: 25;
@@ -69,7 +69,7 @@ export const StyledInput = styled.input`
   width: 256px;
   height: 44px;
   color: var(--primary-blue);
-  border: 1px solid var(--secondary-light-sky);
+  border: 2px solid var(--secondary-light-sky);
   font-size: 16px;
   &::placeholder {
     color: var(--primary-blue);

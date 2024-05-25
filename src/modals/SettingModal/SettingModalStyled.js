@@ -22,7 +22,7 @@ export const StyledUserPhotoWrap = styled.ul`
 `;
 export const StyledUserPhotoItem = styled.li`
   border-radius: 100%;
-  border: 1px solid green;
+  border: 2px solid green;
   width: 90px;
   height: 80px;
 `;
@@ -91,7 +91,7 @@ export const StyledInputPasswordNew = styled.input`
   width: 256px;
 
   height: 44px;
-  border: 1px solid
+  border: 2px solid
     ${(props) =>
       props.$isValidBorderPassword ? "var(--secondary-light-sky)" : "red"};
 
@@ -122,7 +122,7 @@ export const StyledInputPasswordOutdated = styled.input`
   width: 256px;
 
   height: 44px;
-  border: 1px solid
+  border: 2px solid
     ${(props) =>
       props.$isValidBorderPassword ? "var(--secondary-light-sky)" : "red"};
 
@@ -153,7 +153,7 @@ export const StyledInputConfirmRepeat = styled.input`
   width: 256px;
 
   height: 44px;
-  border: 1px solid
+  border: 2px solid
     ${(props) =>
       props.$isValidBorderPassword ? "var(--secondary-light-sky)" : "red"};
 

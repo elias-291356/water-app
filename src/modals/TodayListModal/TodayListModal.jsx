@@ -24,51 +24,47 @@ const TodayListModal = ({ show, close }) => {
   return (
     <Modal show={show} close={close} title="Edit the entered amount of water">
       <StyledSection>
-        <div>
-          <div>
-            <StyledWrapContainer>
-              <StyledWaterTime>
-                <StyledSvg>
-                  <use href={`${sprite}#icon-glass`}></use>
-                </StyledSvg>
-                <StyledWrapCounTime>
-                  <p>250 ml</p>
-                  <p>7:00 AM</p>
-                </StyledWrapCounTime>
-              </StyledWaterTime>
-              <StyledCorrectData>
-                <StyledSubtitle>Correct entered data:</StyledSubtitle>
-                <StyledWrappButtons>
-                  <StyledButton>
-                    <StyledSvgPlusMinus>
-                      <use href={`${sprite}#icon-minus`}></use>
-                    </StyledSvgPlusMinus>
-                  </StyledButton>
-                  <StyledCountOfWater>250ml</StyledCountOfWater>
-                  <StyledButton>
-                    <StyledSvgPlusMinus>
-                      <use href={`${sprite}#icon-plus`}></use>
-                    </StyledSvgPlusMinus>
-                  </StyledButton>
-                </StyledWrappButtons>
-              </StyledCorrectData>
-              <StyledWrapperInputes>
-                <StyledWrapperLabels>
-                  Recording time:
-                  <StyledInput type="text" placeholder="7:00" />
-                </StyledWrapperLabels>
-                <StyledWrapperLabels>
-                  Enter the value of the water used:
-                  <StyledInput type="text" placeholder="250" />
-                </StyledWrapperLabels>
-              </StyledWrapperInputes>
-              <StyledButtonAndCountOfWater>
-                <StyledWaterAmount>250 ml</StyledWaterAmount>
-                <StyledSaveButton>Save</StyledSaveButton>
-              </StyledButtonAndCountOfWater>
-            </StyledWrapContainer>
-          </div>
-        </div>
+        <StyledWrapContainer>
+          <StyledWaterTime>
+            <StyledSvg>
+              <use href={`${sprite}#icon-glass`}></use>
+            </StyledSvg>
+            <StyledWrapCounTime>
+              <p>250 ml</p>
+              <p>7:00 AM</p>
+            </StyledWrapCounTime>
+          </StyledWaterTime>
+          <StyledCorrectData>
+            <StyledSubtitle>Correct entered data:</StyledSubtitle>
+            <StyledWrappButtons>
+              <StyledButton>
+                <StyledSvgPlusMinus>
+                  <use href={`${sprite}#icon-minus`}></use>
+                </StyledSvgPlusMinus>
+              </StyledButton>
+              <StyledCountOfWater>250ml</StyledCountOfWater>
+              <StyledButton>
+                <StyledSvgPlusMinus>
+                  <use href={`${sprite}#icon-plus`}></use>
+                </StyledSvgPlusMinus>
+              </StyledButton>
+            </StyledWrappButtons>
+          </StyledCorrectData>
+          <StyledWrapperInputes>
+            <StyledWrapperLabels>
+              Recording time:
+              <StyledInput type="text" placeholder="7:00" />
+            </StyledWrapperLabels>
+            <StyledWrapperLabels>
+              Enter the value of the water used:
+              <StyledInput type="text" placeholder="250" />
+            </StyledWrapperLabels>
+          </StyledWrapperInputes>
+          <StyledButtonAndCountOfWater>
+            <StyledWaterAmount>250 ml</StyledWaterAmount>
+            <StyledSaveButton>Save</StyledSaveButton>
+          </StyledButtonAndCountOfWater>
+        </StyledWrapContainer>
       </StyledSection>
     </Modal>
   );

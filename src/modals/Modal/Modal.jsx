@@ -9,10 +9,8 @@ import {
   StyledModalCloseSvg,
   ModalSecondBox,
 } from "../Modal/ModalStyled";
-import DailyNorma from "../DailyNorma/DailyNorma";
 import { createPortal } from "react-dom";
 import sprite from "../../images/sprite.svg";
-import TodayListModal from "../TodayListModal/TodayListModal";
 const Modal = ({ show, close, children, title }) => {
   const modalRef = useRef(null);
 
@@ -40,7 +38,8 @@ const Modal = ({ show, close, children, title }) => {
       (child._owner.type.name === "DailyNorma" ||
         child._owner.type.name === "TodayListModal" ||
         child._owner.type.name === "Logout" ||
-        child._owner.type.name === "DeleteEntry")
+        child._owner.type.name === "DeleteEntry" ||
+        child._owner.type.name === "AddWaterModal")
   );
   return createPortal(
     <ModalContainer className={show ? "show" : ""} onClick={close}>
