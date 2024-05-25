@@ -20,10 +20,20 @@ import {
   StyledCalculateLabel,
   StyledSpanCountWater,
 } from "./DailyNormaStyled";
+import { useDispatch, useSelector } from "react-redux";
+import { selectMyWaterNorma } from "../../redux/selectors";
+import { setMyWaterNorma } from "../../redux/authReducer";
 import { useState } from "react";
+import { ErrorMessage } from "../../pages/SignupPage/SignupPageStyled";
 
 const DailyNorma = ({ show, close }) => {
-  const [requiredWater, setRequiredWater] = useState(null);
+  const myWaterNorma = useSelector(selectMyWaterNorma);
+
+  const [messageErrorweight, setMessageErrorweight] = useState("");
+  const [messageErrorActiviti, setMessageErrorActiviti] = useState("");
+  const [messageErrorUsedWater, setMessageErrorUsedWater] = useState("");
+  const dispatch = useDispatch();
+
   const {
     register,
     handleSubmit,
@@ -43,11 +53,48 @@ const DailyNorma = ({ show, close }) => {
       countWater = 0;
     }
 
-    setRequiredWater(countWater.toFixed(2));
-    console.log(data);
+    dispatch(setMyWaterNorma(countWater.toFixed(2)));
     reset();
     console.log(errors);
   };
+
+  // const validateWeight = (value) => {
+  //   const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  // };
+  const validateWeight = (value) => {
+    const weightRegex = /^(1[01][0-9]|120|[2-9][0-9])$/;
+
+    if (weightRegex.test(value)) {
+      setMessageErrorweight("");
+      return true;
+    } else {
+      setMessageErrorweight("Weight must be in range of 20 - 120");
+      return false;
+    }
+  };
+  const validActiveTime = (value) => {
+    const weightRegex = /^[1-6]$/;
+
+    if (weightRegex.test(value)) {
+      setMessageErrorActiviti("");
+      return true;
+    } else {
+      setMessageErrorActiviti("Choice from 1 to 6");
+      return false;
+    }
+  };
+  const validUsedWater = (value) => {
+    const timeRegex = /^[1-12]$/;
+
+    if (timeRegex.test(value)) {
+      setMessageErrorUsedWater("");
+      return true;
+    } else {
+      setMessageErrorUsedWater("Choice from 1 to 12");
+      return false;
+    }
+  };
+
   return (
     <Modal show={show} close={close} title="My daily norma">
       <StyledWrapperMyDaylyNormaModal>
@@ -97,33 +144,43 @@ const DailyNorma = ({ show, close }) => {
             </StyledWrapLabelGender>
             <StyledCalculateLabel>
               Your weight in kilograms:
+              <ErrorMessage>{messageErrorweight}</ErrorMessage>
               <StyledInput
                 type="text"
                 placeholder="0"
-                {...register("weight")}
+                required
+                {...register("weight", {
+                  validate: validateWeight,
+                })}
               />
             </StyledCalculateLabel>
             <StyledCalculateLabel>
+              <ErrorMessage>{messageErrorActiviti}</ErrorMessage>
               The time of active participation in sports or other activities
               with a high physical. load in hours:
               <StyledInput
                 type="text"
                 placeholder="0"
-                {...register("usedTime")}
+                required
+                {...register("usedTime", { validate: validActiveTime })}
               />
             </StyledCalculateLabel>
           </StyledWrapperGenderWeightTime>
           <p>
             The required amount of water in liters per day:{" "}
-            <StyledSpanCountWater>{requiredWater} L</StyledSpanCountWater>
+            <StyledSpanCountWater>
+              {myWaterNorma ? `${myWaterNorma} L` : ""}{" "}
+            </StyledSpanCountWater>
           </p>
           <StyledWrapCountWater>
             <StyledWaterLabel>
+              <ErrorMessage>{messageErrorUsedWater}</ErrorMessage>
               Write down how much water you will drink:
               <StyledInput
                 type="text"
                 placeholder="0"
-                {...register("countWater")}
+                required
+                {...register("countWater", { validate: validUsedWater })}
               />
             </StyledWaterLabel>
           </StyledWrapCountWater>
