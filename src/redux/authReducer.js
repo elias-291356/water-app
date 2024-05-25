@@ -6,6 +6,7 @@ const initialState = {
   isLogin: false,
   error: null,
   isLoading: false,
+  myWaterNorma: null,
 };
 
 const authSlice = createSlice({
@@ -14,6 +15,12 @@ const authSlice = createSlice({
   reducers: {
     setSubmit: (state, action) => {
       state.isSubmit = action.payload;
+    },
+    setMyWaterNorma: (state, action) => {
+      state.myWaterNorma = action.payload;
+    },
+    setClearMyWaterNorma: (state) => {
+      state.myWaterNorma = null;
     },
   },
   extraReducers: (builder) => {
@@ -66,5 +73,6 @@ const authSlice = createSlice({
       });
   },
 });
-export const { setSubmit } = authSlice.actions;
+export const { setSubmit, setMyWaterNorma, setClearMyWaterNorma } =
+  authSlice.actions;
 export const authReducer = authSlice.reducer;

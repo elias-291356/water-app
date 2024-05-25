@@ -20,10 +20,13 @@ import {
   StyledCalculateLabel,
   StyledSpanCountWater,
 } from "./DailyNormaStyled";
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { selectMyWaterNorma } from "../../redux/selectors";
+import { setClearMyWaterNorma, setMyWaterNorma } from "../../redux/authReducer";
 
 const DailyNorma = ({ show, close }) => {
-  const [requiredWater, setRequiredWater] = useState(null);
+  const myWaterNorma = useSelector(selectMyWaterNorma);
+  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
@@ -43,13 +46,16 @@ const DailyNorma = ({ show, close }) => {
       countWater = 0;
     }
 
-    setRequiredWater(countWater.toFixed(2));
-    console.log(data);
+    dispatch(setMyWaterNorma(countWater.toFixed(2)));
     reset();
     console.log(errors);
   };
+  const handleClose = () => {
+    dispatch(setClearMyWaterNorma());
+    close();
+  };
   return (
-    <Modal show={show} close={close} title="My daily norma">
+    <Modal show={show} close={handleClose} title="My daily norma">
       <StyledWrapperMyDaylyNormaModal>
         <StyledGenderWrap>
           <StyledGenderList>
@@ -115,7 +121,9 @@ const DailyNorma = ({ show, close }) => {
           </StyledWrapperGenderWeightTime>
           <p>
             The required amount of water in liters per day:{" "}
-            <StyledSpanCountWater>{requiredWater} L</StyledSpanCountWater>
+            <StyledSpanCountWater>
+              {myWaterNorma ? `${myWaterNorma} L` : ""}{" "}
+            </StyledSpanCountWater>
           </p>
           <StyledWrapCountWater>
             <StyledWaterLabel>

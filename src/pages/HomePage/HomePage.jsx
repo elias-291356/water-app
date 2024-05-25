@@ -20,8 +20,11 @@ import {
 } from "./HomePageStyled";
 import DailyNorma from "../../modals/DailyNorma/DailyNorma";
 import { useState } from "react";
+import { selectMyWaterNorma } from "../../redux/selectors";
+import { useSelector } from "react-redux";
 const HomePage = () => {
   const [showModal, setShowModal] = useState(false);
+  const myWaterNorma = useSelector(selectMyWaterNorma);
   const MAX = 100;
   const MIN = 0;
   const MEDIUM = 50;
@@ -29,20 +32,7 @@ const HomePage = () => {
   const handleChange = (_, newValue) => {
     setVal(newValue);
   };
-  const marks = [
-    {
-      value: MIN,
-      // label: "0%",
-    },
-    {
-      value: MEDIUM,
-      // label: "0%",
-    },
-    {
-      value: MAX,
-      // label: "100%",
-    },
-  ];
+  const marks = [{ value: MIN }, { value: MEDIUM }, { value: MAX }];
 
   const openEditModal = () => {
     setShowModal(true);
@@ -56,7 +46,9 @@ const HomePage = () => {
       <StyledDailyNorma>
         <StyledTitle>My daily norma</StyledTitle>
         <StyledEditWatter>
-          <StyledCountWatter>2.0L</StyledCountWatter>
+          <StyledCountWatter>
+            {myWaterNorma ? `${myWaterNorma} L` : "1.5 L"}
+          </StyledCountWatter>
           <StyledButtonEdit type="button" onClick={openEditModal}>
             Edit
           </StyledButtonEdit>
