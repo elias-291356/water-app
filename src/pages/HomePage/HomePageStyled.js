@@ -50,7 +50,7 @@ export const StyledDailyNorma = styled.div`
   flex-direction: column;
   column-gap: 12px;
   justify-content: space-between;
-  border: 1px solid var(--secondary-light-sky);
+  border: 2px solid var(--secondary-light-sky);
   border-radius: 10px;
   padding: 8px 20px;
   width: 164px;

@@ -94,7 +94,7 @@ export const StyledInputEmail = styled.input`
   padding: 12px 10px;
   width: 280px;
   height: 44px;
-  border: 1px solid
+  border: 2px solid
     ${(props) =>
       props.$isValidBorderEmail ? "var(--secondary-light-sky)" : "red"};
 
@@ -114,7 +114,7 @@ export const StyledInputPassword = styled.input`
   padding: 12px 10px;
   width: 280px;
   height: 44px;
-  border: 1px solid
+  border: 2px solid
     ${(props) =>
       props.$isValidBorderPassword ? "var(--secondary-light-sky)" : "red"};
 
@@ -134,7 +134,7 @@ export const StyledInputConfirm = styled.input`
   padding: 12px 10px;
   width: 280px;
   height: 44px;
-  border: 1px solid
+  border: 2px solid
     ${(props) =>
       props.$isValidBorderConfirm ? "var(--secondary-light-sky)" : "red"};
 
