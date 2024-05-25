@@ -22,8 +22,10 @@ import DailyNorma from "../../modals/DailyNorma/DailyNorma";
 import { useState } from "react";
 import { selectMyWaterNorma } from "../../redux/selectors";
 import { useSelector } from "react-redux";
+import TodayListModal from "../../modals/TodayListModal/TodayListModal";
 const HomePage = () => {
   const [showModal, setShowModal] = useState(false);
+  const [showTodayListModal, setShowTodayListModal] = useState(false);
   const myWaterNorma = useSelector(selectMyWaterNorma);
   const MAX = 100;
   const MIN = 0;
@@ -40,6 +42,13 @@ const HomePage = () => {
 
   const closeEditModal = () => {
     setShowModal(false);
+  };
+  const openTodayListModal = () => {
+    setShowTodayListModal(true);
+  };
+
+  const closeTodayListModal = () => {
+    setShowTodayListModal(false);
   };
   return (
     <StyledSectionHomePage>
@@ -107,6 +116,10 @@ const HomePage = () => {
         </StyledWrapWatterButton>
       </StyledWaterSlider>
       <DailyNorma show={showModal} close={closeEditModal} />
+      <TodayListModal show={showTodayListModal} close={closeTodayListModal} />
+      <button type="button" onClick={openTodayListModal}>
+        open TodayListModal
+      </button>
     </StyledSectionHomePage>
   );
 };
