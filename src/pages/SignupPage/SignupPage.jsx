@@ -22,6 +22,12 @@ import {
 import { useNavigate } from "react-router-dom";
 import { selectIsLogin } from "../../redux/selectors";
 import { useEffect } from "react";
+import {
+  StyledBannerSvgLogin,
+  StyledBannerSvgWrapper,
+  StyledFormWrapperLogin,
+  StyledWrapperSignIn,
+} from "../SigninPage/SigninPageStyled";
 
 const SignupPage = () => {
   const dispatch = useDispatch();
@@ -99,60 +105,71 @@ const SignupPage = () => {
   };
   return (
     <>
-      <StyledFormWrapper>
-        <StyledSignUpTitle>Sign Up</StyledSignUpTitle>
-        <ErrorMessage>{emailError}</ErrorMessage>
-        <StyledForm onSubmit={handleSubmit(onSubmit)}>
-          <StyledLabel>Enter your email</StyledLabel>
-          <StyledInputEmail
-            $isValidBorderEmail={isValidBorderEmail}
-            name="email"
-            required
-            type="email"
-            placeholder="E-mail"
-            {...register("email", {
-              required: true,
-              validate: validateEmail,
-            })}
-          />
-          <StyledLabel>Enter your password</StyledLabel>
-          <StyledWrapInput>
-            <StyledInputPassword
-              $isValidBorderPassword={isValidBorderPassword}
-              name="password"
-              type={showPassword ? "text" : "password"}
-              placeholder="Password"
-              {...register("password", {
-                validate: validatePassword,
+      {/* <StyledFormWrapper> */}
+      <StyledWrapperSignIn>
+        <StyledFormWrapperLogin>
+          <StyledSignUpTitle>Sign Up</StyledSignUpTitle>
+          <ErrorMessage>{emailError}</ErrorMessage>
+          <StyledForm onSubmit={handleSubmit(onSubmit)}>
+            <StyledLabel>Enter your email</StyledLabel>
+            <StyledInputEmail
+              $isValidBorderEmail={isValidBorderEmail}
+              name="email"
+              required
+              type="email"
+              placeholder="E-mail"
+              {...register("email", {
+                required: true,
+                validate: validateEmail,
               })}
             />
-            <StyledSvgIconShowPassword onClick={togglePasswordVisibility}>
-              <use
-                href={`${sprite}#icon-${showPassword ? "show" : "hide"}`}
-              ></use>
-            </StyledSvgIconShowPassword>
-          </StyledWrapInput>
-          <ErrorMessage>{passwordError}</ErrorMessage>
-          <StyledLabel>Repeat password</StyledLabel>
-          <StyledWrapInput>
-            <StyledInputConfirm
-              $isValidBorderConfirm={isValidBorderConfirm}
-              name="confirmPassword"
-              type={showConfirmPassword ? "text" : "password"}
-              placeholder="Repeat password"
-              {...register("confirmPassword")}
-            />
-            <StyledSvgIconShowPassword onClick={toggleConfirmPassVisibility}>
-              <use
-                href={`${sprite}#icon-${showConfirmPassword ? "show" : "hide"}`}
-              ></use>
-            </StyledSvgIconShowPassword>
-          </StyledWrapInput>
-          <StyledAuthButton type="submit">Sign Up</StyledAuthButton>
-        </StyledForm>
-        <StyledSigninLink to="/signin">Sign In</StyledSigninLink>
-        <AuthForm />
-      </StyledFormWrapper>
+            <StyledLabel>Enter your password</StyledLabel>
+            <StyledWrapInput>
+              <StyledInputPassword
+                $isValidBorderPassword={isValidBorderPassword}
+                name="password"
+                type={showPassword ? "text" : "password"}
+                placeholder="Password"
+                {...register("password", {
+                  validate: validatePassword,
+                })}
+              />
+              <StyledSvgIconShowPassword onClick={togglePasswordVisibility}>
+                <use
+                  href={`${sprite}#icon-${showPassword ? "show" : "hide"}`}
+                ></use>
+              </StyledSvgIconShowPassword>
+            </StyledWrapInput>
+            <ErrorMessage>{passwordError}</ErrorMessage>
+            <StyledLabel>Repeat password</StyledLabel>
+            <StyledWrapInput>
+              <StyledInputConfirm
+                $isValidBorderConfirm={isValidBorderConfirm}
+                name="confirmPassword"
+                type={showConfirmPassword ? "text" : "password"}
+                placeholder="Repeat password"
+                {...register("confirmPassword")}
+              />
+              <StyledSvgIconShowPassword onClick={toggleConfirmPassVisibility}>
+                <use
+                  href={`${sprite}#icon-${
+                    showConfirmPassword ? "show" : "hide"
+                  }`}
+                ></use>
+              </StyledSvgIconShowPassword>
+            </StyledWrapInput>
+            <StyledAuthButton type="submit">Sign Up</StyledAuthButton>
+          </StyledForm>
+          <StyledSigninLink to="/signin">Sign In</StyledSigninLink>
+          {/* <AuthForm /> */}
+          {/* </StyledFormWrapper> */}
+        </StyledFormWrapperLogin>
+        <StyledBannerSvgWrapper>
+          <StyledBannerSvgLogin>
+            <use href={`${sprite}#icon-background-bottle`}></use>
+          </StyledBannerSvgLogin>
+        </StyledBannerSvgWrapper>
+      </StyledWrapperSignIn>
     </>
   );
 };
