@@ -42,6 +42,7 @@ export const StyledAuthButton = styled.button`
   }
 
   @media screen and (min-width: 1280px) {
+    width: 384px;
   }
 `;
 export const StyledSigninLink = styled(Link)`
@@ -65,6 +66,7 @@ export const StyledWrapInput = styled.div`
   }
 
   @media screen and (min-width: 1280px) {
+    width: 384px;
   }
 `;
 export const StyledFormWrap = styled.div`
@@ -73,13 +75,19 @@ export const StyledFormWrap = styled.div`
   row-gap: 16px;
 `;
 export const StyledFormWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  row-gap: 60px;
   @media screen and (min-width: 768px) {
+    display: flex;
+    flex-direction: row;
     width: 336px;
   }
 
   @media screen and (min-width: 1280px) {
   }
 `;
+
 export const ErrorMessage = styled.div`
   color: red;
   font-size: 14px;
