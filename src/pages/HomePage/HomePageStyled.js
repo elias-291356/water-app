@@ -40,6 +40,7 @@ export const StyledSvgAddWatter = styled.svg`
   position: absolute;
   width: 24px;
   height: 24px;
+
   fill: none;
   stroke: var(--primary-white);
   top: 7px;

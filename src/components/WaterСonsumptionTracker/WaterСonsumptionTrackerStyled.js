@@ -86,8 +86,10 @@ export const StyledListTolls = styled.ul`
 export const StyledSvgTracker = styled.svg`
   width: 24px;
   height: 24px;
+  fill: transparent;
+  stroke: var(--primary-blue);
   @media screen and (min-width: 768px) {
-    width: 32px;
-    height: 32px;
+    width: 40px;
+    height: 40px;
   }
 `;
