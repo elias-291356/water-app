@@ -9,7 +9,7 @@ import { listItemClasses } from "@mui/material/ListItem";
 export const StyledMuiList = styled(List)(
   () => `
     &.${listClasses.root} {
-      padding-bottom: 30px;
+      border-radius: 10px;
       background-color: var(--secondary-light-blue);
 
     }
@@ -20,7 +20,6 @@ export const StyledListSubheader = styled(ListSubheader)(
   () => `
     &.${listSubheaderClasses.root} {
       background-color: var(--secondary-light-blue);
-      
     }
  
   `
@@ -44,8 +43,12 @@ export const StyledListItem = styled(ListItem)(
 // `;
 
 export const StyledFixedButton = styled.button`
+  position: absolute;
   display: flex;
-
+  row-gap: 18px;
+  left: 0px;
+  bottom: 12px;
+  z-index: 2;
   border: none;
   background-color: transparent;
   font-weight: 500;
@@ -58,12 +61,8 @@ export const StyledWrapperList = styled.div`
   position: relative;
 `;
 export const StylledWrapperButton = styled.div`
-  position: absolute;
-  display: flex;
-  row-gap: 8px;
-  left: 0px;
-  bottom: 0px;
-  z-index: 2;
+  width: 100%;
+  height: 50px;
 `;
 export const StyledSvgInButton = styled.svg`
   width: 18px;
