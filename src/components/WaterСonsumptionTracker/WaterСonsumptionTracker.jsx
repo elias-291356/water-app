@@ -46,6 +46,7 @@ const WaterСonsumptionTracker = () => {
       <StyledButtonTracker type="button" onClick={onClickToSignupPage}>
         Try tracker
       </StyledButtonTracker>
+      
     </StyledSectionBanner>
   );
 };

@@ -12,6 +12,9 @@ export const StyledDescrSection = styled.section`
   background-color: var(--secondary-light-blue);
 
   @media screen and (min-width: 768px) {
+    position: relative;
+    display: flex;
+    flex-direction: row;
     width: 494px;
   }
 
@@ -19,6 +22,16 @@ export const StyledDescrSection = styled.section`
     align-self: flex-end;
   }
 `;
+// export const StyledWrapperSvg = styled.div`
+//   @media screen and (min-width: 768px) {
+//     position: relative;
+
+//     width: 380px;
+//     height: 380px;
+//   }
+//   @media screen and (min-width: 1280px) {
+//   }
+// `;
 
 export const StyledDescrWhy = styled.h3`
   font-weight: 500;
@@ -55,5 +68,21 @@ export const StyledDescrList = styled.ul`
     top: 50%;
     transform: translateY(-50%);
     background-color: var(--primary-blue);
+  }
+`;
+export const StyledBannerSvg = styled.svg`
+  @media screen and (min-width: 768px) {
+    position: absolute;
+    z-index: -1;
+    top: -90px;
+    right: -500px;
+    width: 700px;
+    height: 410px;
+  }
+  @media screen and (min-width: 1280px) {
+    top: 310px;
+    right: -150px;
+    width: 330px;
+    height: 230px;
   }
 `;

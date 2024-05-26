@@ -17,6 +17,7 @@ export const StyledSvg = styled.svg`
 `;
 export const StyledSvgPlusMinus = styled.svg`
   width: 24px;
+
   height: 24px;
   fill: transparent;
   stroke: var(--primary-blue);
