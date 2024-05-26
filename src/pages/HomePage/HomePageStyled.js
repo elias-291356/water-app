@@ -271,8 +271,14 @@ export const StyledSlider = styled(Slider)(
 
 export const StyledWaterTime = styled.div`
   display: flex;
-  column-gap: 12px;
+  column-gap: 20px;
   align-items: center;
+  @media screen and (min-width: 768px) {
+    justify-content: space-between;
+    width: 700px;
+  }
+  @media screen and (min-width: 1280px) {
+  }
 `;
 export const StyledSvg = styled.svg`
   width: 36px;
@@ -288,7 +294,8 @@ export const StyledSvgCreate = styled.svg`
 `;
 export const StyledWrapCounTime = styled.div`
   display: flex;
-  column-gap: 16px;
+  column-gap: 22px;
+  align-items: center;
 `;
 export const StyledSvgBlock = styled.div`
   display: flex;

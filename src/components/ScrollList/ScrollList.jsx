@@ -1,15 +1,6 @@
 import React from "react";
-
-import sprite from "../../images/sprite.svg";
-import AddWaterModal from "../../modals/AddWaterModal/AddWaterModal";
-import {
-  StyledSvg,
-  StyledSvgBlock,
-  StyledSvgCreate,
-  StyledWaterTime,
-  StyledWrapCounTime,
-} from "../../pages/HomePage/HomePageStyled";
 import { useState } from "react";
+import sprite from "../../images/sprite.svg";
 import {
   StyledFixedButton,
   StyledMuiList,
@@ -19,7 +10,18 @@ import {
   StyledWrapSvgButton,
   StyledListSubheader,
   StyledListItem,
+  StyledSvg,
+  StyledCountWater,
+  StyledTimeUsed,
 } from "./ScrollListStyled";
+import {
+  StyledSvgBlock,
+  StyledSvgCreate,
+  StyledWaterTime,
+  StyledWrapCounTime,
+} from "../../pages/HomePage/HomePageStyled";
+import AddWaterModal from "../../modals/AddWaterModal/AddWaterModal";
+
 const ScrollList = () => {
   const [showAddWaterModal, setShowAddWaterModal] = useState(false);
 
@@ -44,20 +46,20 @@ const ScrollList = () => {
         }}
         subheader={<li />}
       >
+        <h3>Today</h3>
         {[0, 1, 2, 3, 4].map((sectionId) => (
           <li key={`section-${sectionId}`}>
             <ul>
               <StyledListSubheader>{`Monday ${sectionId}`}</StyledListSubheader>
               {[0, 1, 2].map((item) => (
-                // <ListItem key={`item-${sectionId}-${item}`}>
                 <StyledListItem key={`item-${sectionId}-${item}`}>
                   <StyledWaterTime>
-                    <StyledSvg>
-                      <use href={`${sprite}#icon-glass`}></use>
-                    </StyledSvg>
                     <StyledWrapCounTime>
-                      <p>250 ml</p>
-                      <p>7:00 AM</p>
+                      <StyledSvg>
+                        <use href={`${sprite}#icon-glass`}></use>
+                      </StyledSvg>
+                      <StyledCountWater>250 ml</StyledCountWater>
+                      <StyledTimeUsed>7:00 AM</StyledTimeUsed>
                     </StyledWrapCounTime>
                     <StyledSvgBlock>
                       <StyledSvgCreate>
@@ -69,7 +71,6 @@ const ScrollList = () => {
                     </StyledSvgBlock>
                   </StyledWaterTime>
                 </StyledListItem>
-                // </ListItem>
               ))}
             </ul>
           </li>
