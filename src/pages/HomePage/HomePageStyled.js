@@ -183,8 +183,6 @@ export const StyledWrapSliderAndButton = styled.div`
 `;
 export const StyledCalendarWater = styled.section`
   border-radius: 10px;
-  border: 2px solid blue;
-  padding: 24px 8px;
   width: 280px;
   height: 836px;
   box-shadow: 0 4px 14px 0 rgba(64, 123, 255, 0.3);
@@ -268,3 +266,35 @@ export const StyledSlider = styled(Slider)(
 
 `
 );
+
+// ==============calendar
+
+export const StyledWaterTime = styled.div`
+  display: flex;
+  column-gap: 12px;
+  align-items: center;
+`;
+export const StyledSvg = styled.svg`
+  width: 36px;
+  height: 36px;
+  fill: transparent;
+  stroke: var(--primary-blue);
+`;
+export const StyledSvgCreate = styled.svg`
+  width: 16px;
+  height: 16px;
+  fill: transparent;
+  stroke: var(--primary-blue);
+`;
+export const StyledWrapCounTime = styled.div`
+  display: flex;
+  column-gap: 16px;
+`;
+export const StyledSvgBlock = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 50px;
+  & > :nth-child(2) {
+    stroke: var(--secondary-red);
+  }
+`;

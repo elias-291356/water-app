@@ -14,16 +14,21 @@ import {
   StyledBannerSvg,
   StyledWrapPosition,
   StyledDailyNorma,
+  StyledSvgCreate,
   // StyledTypography,
   StyledSvgAddWatter,
   StyledWaterSlider,
   StyledDay,
-  StyledCalendarWater,
   StyledSectionsWrapper,
+  StyledSvg,
   StyledEditWatter,
   StyledButtonEdit,
   StyledWrapSliderAndButton,
   StyledSectionHomePage,
+  StyledWaterTime,
+  StyledCalendarWater,
+  StyledWrapCounTime,
+  StyledSvgBlock,
 } from "./HomePageStyled";
 import DailyNorma from "../../modals/DailyNorma/DailyNorma";
 import { useState } from "react";
@@ -31,7 +36,7 @@ import { selectMyWaterNorma } from "../../redux/selectors";
 import { useSelector } from "react-redux";
 import TodayListModal from "../../modals/TodayListModal/TodayListModal";
 import DeleteEntry from "../../modals/DeleteEntry/DeleteEntry";
-import AddWaterModal from "../../modals/AddWaterModal/AddWaterModal";
+import ScrollList from "../../components/ScrollList/ScrollList";
 
 const HomePage = () => {
   const isTablet = useMediaQuery({ query: "(min-width: 768px)" });
@@ -39,7 +44,6 @@ const HomePage = () => {
   const [showModal, setShowModal] = useState(false);
   const [showTodayListModal, setShowTodayListModal] = useState(false);
   const [showDeleteEntryModal, setShowDeleteEntryModal] = useState(false);
-  const [showAddWaterModal, setShowAddWaterModal] = useState(false);
   const myWaterNorma = useSelector(selectMyWaterNorma);
   const MAX = 100;
   const MIN = 0;
@@ -71,13 +75,7 @@ const HomePage = () => {
   const closeDeleteModal = () => {
     setShowDeleteEntryModal(false);
   };
-  const openAddWaterModal = () => {
-    setShowAddWaterModal(true);
-  };
 
-  const closeAddWaterModal = () => {
-    setShowAddWaterModal(false);
-  };
   return (
     <StyledSectionsWrapper>
       <StyledSectionHomePage>
@@ -158,19 +156,17 @@ const HomePage = () => {
         {/* // ==================================================/// */}
       </StyledSectionHomePage>
       <StyledCalendarWater>
-        {" "}
+        <ScrollList />
+
         <TodayListModal show={showTodayListModal} close={closeTodayListModal} />
         <DeleteEntry show={showDeleteEntryModal} close={closeDeleteModal} />
-        <AddWaterModal show={showAddWaterModal} close={closeAddWaterModal} />
+
         <button type="button" onClick={openTodayListModal}>
           open TodayListModal
         </button>
         <button type="button" onClick={openDeleteModal}>
           open TDeleteEntry
         </button>
-        <button type="button" onClick={openAddWaterModal}>
-          open add water modal
-        </button>{" "}
       </StyledCalendarWater>
     </StyledSectionsWrapper>
   );
