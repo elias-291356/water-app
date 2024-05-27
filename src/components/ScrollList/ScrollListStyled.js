@@ -51,7 +51,7 @@ export const StyledListItem = styled(ListItem)(
       border-bottom: 2px solid var(--secondary-light-sky);
       padding:0px;
          @media screen and (min-width: 768px) {
-        width: 700px;
+        width: 650px;
         }
         @media screen and (min-width: 1280px) {
           width:530px;
