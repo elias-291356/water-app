@@ -1,8 +1,16 @@
-import React, { useRef } from "react";
+import React from "react";
+
 import { useMediaQuery } from "react-responsive";
+import { useSelector } from "react-redux";
+import { useState } from "react";
+import { selectMyWaterNorma } from "../../redux/selectors";
+
+import DailyNorma from "../../modals/DailyNorma/DailyNorma";
+import TodayListModal from "../../modals/TodayListModal/TodayListModal";
+import DeleteEntry from "../../modals/DeleteEntry/DeleteEntry";
+import ScrollList from "../../components/ScrollList/ScrollList";
 
 import Box from "@mui/material/Box";
-import sprite from "../../images/sprite.svg";
 import Typography from "@mui/material/Typography";
 import {
   StyledBox,
@@ -14,29 +22,20 @@ import {
   StyledBannerSvg,
   StyledWrapPosition,
   StyledDailyNorma,
-  StyledSvgCreate,
-  // StyledTypography,
   StyledSvgAddWatter,
   StyledWaterSlider,
   StyledDay,
   StyledSectionsWrapper,
-  StyledSvg,
   StyledEditWatter,
   StyledButtonEdit,
   StyledWrapSliderAndButton,
   StyledSectionHomePage,
-  StyledWaterTime,
   StyledCalendarWater,
-  StyledWrapCounTime,
-  StyledSvgBlock,
 } from "./HomePageStyled";
-import DailyNorma from "../../modals/DailyNorma/DailyNorma";
-import { useState } from "react";
-import { selectMyWaterNorma } from "../../redux/selectors";
-import { useSelector } from "react-redux";
-import TodayListModal from "../../modals/TodayListModal/TodayListModal";
-import DeleteEntry from "../../modals/DeleteEntry/DeleteEntry";
-import ScrollList from "../../components/ScrollList/ScrollList";
+
+import sprite from "../../images/sprite.svg";
+import Calendar from "../../components/Calendar/Calendar";
+import BasicDateCalendar from "../../components/Calendar/Calendar";
 
 const HomePage = () => {
   const isTablet = useMediaQuery({ query: "(min-width: 768px)" });
@@ -44,11 +43,14 @@ const HomePage = () => {
   const [showModal, setShowModal] = useState(false);
   const [showTodayListModal, setShowTodayListModal] = useState(false);
   const [showDeleteEntryModal, setShowDeleteEntryModal] = useState(false);
+
   const myWaterNorma = useSelector(selectMyWaterNorma);
+
   const MAX = 100;
   const MIN = 0;
   const MEDIUM = 50;
   const [val, setVal] = React.useState(MIN);
+
   const handleChange = (_, newValue) => {
     setVal(newValue);
   };
@@ -156,7 +158,11 @@ const HomePage = () => {
         {/* // ==================================================/// */}
       </StyledSectionHomePage>
       <StyledCalendarWater>
+        {/*  */}
         <ScrollList />
+        {/*  */}
+        <Calendar />
+        {/*  */}
 
         <TodayListModal show={showTodayListModal} close={closeTodayListModal} />
         <DeleteEntry show={showDeleteEntryModal} close={closeDeleteModal} />

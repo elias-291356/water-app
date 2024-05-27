@@ -294,7 +294,7 @@ export const StyledSvgCreate = styled.svg`
 `;
 export const StyledWrapCounTime = styled.div`
   display: flex;
-  column-gap: 22px;
+  column-gap: 16px;
   align-items: center;
 `;
 export const StyledSvgBlock = styled.div`
