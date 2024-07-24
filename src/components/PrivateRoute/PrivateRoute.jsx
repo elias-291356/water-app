@@ -7,7 +7,7 @@ import { selectIsLogin, selectToken } from "../../redux/selectors";
 const PrivateRoute = () => {
   const isLogin = useSelector(selectIsLogin);
   const token = useSelector(selectToken);
-  console.log(token);
+
   // if (!isLogin && token) {
   //   return <p>...Loading PRIVAT</p>;
   // }
