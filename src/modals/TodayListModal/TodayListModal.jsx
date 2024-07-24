@@ -20,11 +20,32 @@ import {
   StyledWaterAmount,
 } from "./TodayListModalStyled";
 import sprite from "../../images/sprite.svg";
-import MuiSelect from "./modals/TodayListModal/MuiSelect";
-import UnstyledSelectCustomRenderValue from "./modals/TodayListModal/MuiSelect";
+import { useState } from "react";
 
 const TodayListModal = ({ show, close }) => {
-  const onClickPlus = () => {};
+  const [selectedValue, setSelectedValue] = useState(50);
+
+  const onClickPlus = () => {
+    const options = [0, 50, 100, 250, 500, 750, 1000, 1500];
+    const currentIndex = options.indexOf(selectedValue);
+    const nextIndex = (currentIndex + 1) % options.length;
+
+    const isNextMax = options[nextIndex] === 1500;
+    if (!isNextMax) {
+      setSelectedValue(options[nextIndex]);
+    }
+  };
+
+  const onClickMinus = () => {
+    const options = [0, 50, 100, 250, 500, 750, 1000, 1500];
+    const currentIndex = options.indexOf(selectedValue);
+    const previousIndex = (currentIndex - 1 + options.length) % options.length;
+
+    const isPreviousMin = options[previousIndex] === 0;
+    if (!isPreviousMin) {
+      setSelectedValue(options[previousIndex]);
+    }
+  };
   return (
     <Modal show={show} close={close} title="Edit the entered amount of water">
       <StyledSection>
@@ -41,16 +62,14 @@ const TodayListModal = ({ show, close }) => {
           <StyledCorrectData>
             <StyledSubtitle>Correct entered data:</StyledSubtitle>
             <StyledWrappButtons>
-              <StyledButton>
+              <StyledButton onClick={onClickMinus}>
                 <StyledSvgPlusMinus>
                   <use href={`${sprite}#icon-minus`}></use>
                 </StyledSvgPlusMinus>
               </StyledButton>
-              <StyledCountOfWater>
-                <MuiSelect />
-              </StyledCountOfWater>
-              <StyledButton>
-                <StyledSvgPlusMinus onClick={onClickPlus}>
+              <StyledCountOfWater>{selectedValue}ml</StyledCountOfWater>
+              <StyledButton onClick={onClickPlus}>
+                <StyledSvgPlusMinus>
                   <use href={`${sprite}#icon-plus`}></use>
                 </StyledSvgPlusMinus>
               </StyledButton>
