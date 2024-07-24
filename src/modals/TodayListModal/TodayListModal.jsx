@@ -20,7 +20,11 @@ import {
   StyledWaterAmount,
 } from "./TodayListModalStyled";
 import sprite from "../../images/sprite.svg";
+import MuiSelect from "./modals/TodayListModal/MuiSelect";
+import UnstyledSelectCustomRenderValue from "./modals/TodayListModal/MuiSelect";
+
 const TodayListModal = ({ show, close }) => {
+  const onClickPlus = () => {};
   return (
     <Modal show={show} close={close} title="Edit the entered amount of water">
       <StyledSection>
@@ -42,9 +46,11 @@ const TodayListModal = ({ show, close }) => {
                   <use href={`${sprite}#icon-minus`}></use>
                 </StyledSvgPlusMinus>
               </StyledButton>
-              <StyledCountOfWater>250ml</StyledCountOfWater>
+              <StyledCountOfWater>
+                <MuiSelect />
+              </StyledCountOfWater>
               <StyledButton>
-                <StyledSvgPlusMinus>
+                <StyledSvgPlusMinus onClick={onClickPlus}>
                   <use href={`${sprite}#icon-plus`}></use>
                 </StyledSvgPlusMinus>
               </StyledButton>
