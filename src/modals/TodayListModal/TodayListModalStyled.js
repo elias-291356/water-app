@@ -76,6 +76,7 @@ export const StyledInput = styled.input`
     width: 544px;
   }
 `;
+
 export const StyledCorrectData = styled.div`
   display: flex;
   flex-direction: column;
