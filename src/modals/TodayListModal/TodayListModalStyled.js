@@ -46,10 +46,19 @@ export const StyledWrapperLabels = styled.label`
   display: flex;
   flex-direction: column;
   row-gap: 16px;
-
+  position: relative;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.25;
+  > div {
+    position: absolute;
+    top: 48px;
+    padding-left: 10px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.25;
+    color: var(--primary-blue);
+  }
 `;
 export const StyledInput = styled.input`
   border: 2px solid var(--secondary-light-sky);
