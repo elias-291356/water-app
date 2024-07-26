@@ -1,28 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
-function LocalTime() {
-  const [time, setTime] = useState(new Date());
+const LocalTime = ({ minutes }) => {
+  const now = new Date();
+  now.setMinutes(minutes); // Устанавливаем минуты
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setTime(new Date());
-    }, 60 * 1000);
-
-    return () => {
-      clearInterval(timer);
-    };
-  }, []);
-
-  const formattedTime = time.toLocaleTimeString([], {
+  const formattedTime = now.toLocaleTimeString([], {
     hour: "2-digit",
     minute: "2-digit",
   });
 
-  return (
-    <div>
-      <p>{formattedTime}</p>
-    </div>
-  );
-}
+  return <span>{formattedTime}</span>;
+};
 
 export default LocalTime;

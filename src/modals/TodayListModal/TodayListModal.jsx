@@ -21,7 +21,7 @@ import {
 } from "./TodayListModalStyled";
 import sprite from "../../images/sprite.svg";
 import { useState } from "react";
-import LocalTime from "./LocalTime";
+// import LocalTime from "./LocalTime";
 import TimePicker from "../TimePicker/TimePicker";
 
 // import MultipleSelectPlaceholder from "../TimePicker/TimePicker.jsx";
@@ -51,13 +51,9 @@ const TodayListModal = ({ show, close }) => {
     }
   };
 
-  // const onClickSelectTime = () => {
-  //   const count = [];
-  //   for (let i = 5; i <= 55; i += 5) {
-  //     count.push(i);
-  //   }
-  //   console.log(count);
-  // };
+  const onClickSelectTime = () => {
+    console.log("sdsdsdsd");
+  };
   return (
     <Modal show={show} close={close} title="Edit the entered amount of water">
       {/* <MultipleSelectPlaceholder /> */}
@@ -92,8 +88,8 @@ const TodayListModal = ({ show, close }) => {
             <StyledWrapperLabels>
               Recording time:
               <TimePicker />
-              <LocalTime />
-              <StyledInput></StyledInput>
+              {/* <LocalTime /> */}
+              <StyledInput type="text" onClick={onClickSelectTime} />
             </StyledWrapperLabels>
             <StyledWrapperLabels>
               Enter the value of the water used:
