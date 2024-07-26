@@ -21,6 +21,7 @@ import {
 } from "./TodayListModalStyled";
 import sprite from "../../images/sprite.svg";
 import { useState } from "react";
+import LocalTime from "./LocalTime";
 
 const TodayListModal = ({ show, close }) => {
   const [selectedValue, setSelectedValue] = useState(50);
@@ -46,6 +47,8 @@ const TodayListModal = ({ show, close }) => {
       setSelectedValue(options[previousIndex]);
     }
   };
+
+  const onClickSelectTime = () => {};
   return (
     <Modal show={show} close={close} title="Edit the entered amount of water">
       <StyledSection>
@@ -76,9 +79,10 @@ const TodayListModal = ({ show, close }) => {
             </StyledWrappButtons>
           </StyledCorrectData>
           <StyledWrapperInputes>
-            <StyledWrapperLabels>
+            <StyledWrapperLabels onClick={onClickSelectTime}>
               Recording time:
-              <StyledInput type="text" placeholder="7:00" />
+              <LocalTime />
+              <StyledInput></StyledInput>
             </StyledWrapperLabels>
             <StyledWrapperLabels>
               Enter the value of the water used:
