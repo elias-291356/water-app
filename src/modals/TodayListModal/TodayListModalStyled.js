@@ -50,18 +50,35 @@ export const StyledWrapperLabels = styled.label`
   font-weight: 400;
   font-size: 16px;
   line-height: 1.25;
+
   > div {
     position: absolute;
-    top: 48px;
-    padding-left: 10px;
+    top: 36px;
+    height: 43px;
+    width: 256px;
+    /* padding-left: 10px; */
+    margin: 0px;
     font-weight: 400;
     font-size: 16px;
     line-height: 1.25;
     color: var(--primary-blue);
+    border-radius: 6px;
+
+    > div {
+      color: var(--primary-blue);
+      border-radius: 6px;
+      /* border: 2px solid var(--secondary-light-sky); */
+    }
+    > div > div {
+      /* border: 2px solid var(--secondary-light-sky); */
+      padding: 8px 14px;
+    }
   }
 `;
 export const StyledInput = styled.input`
-  border: 2px solid var(--secondary-light-sky);
+  /* border: 2px solid var(--secondary-light-sky); */
+
+  border: 1px solid transparent;
   border-radius: 6px;
   padding: 12px 10px;
   width: 256px;

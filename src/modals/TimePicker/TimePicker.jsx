@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useTheme } from "@mui/material/styles";
+import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
@@ -39,8 +39,27 @@ export default function SingleSelect() {
     setSelectedMinute(event.target.value);
   };
 
+  const createColorBorder = createTheme({
+    components: {
+      MuiOutlinedInput: {
+        styleOverrides: {
+          root: {
+            "& .MuiOutlinedInput-notchedOutline": {
+              borderColor: "var(--secondary-light-sky)",
+            },
+            "&:hover .MuiOutlinedInput-notchedOutline": {
+              borderColor: "var(--secondary-blue)",
+            },
+            "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+              borderColor: "var(--secondary-blue)",
+            },
+          },
+        },
+      },
+    },
+  });
   return (
-    <div>
+    <ThemeProvider theme={createColorBorder}>
       <FormControl sx={{ m: 1, width: 300, mt: 3 }}>
         <Select
           displayEmpty
@@ -56,9 +75,6 @@ export default function SingleSelect() {
           MenuProps={MenuProps}
           inputProps={{ "aria-label": "Without label" }}
         >
-          {/* <MenuItem disabled value="">
-            <em>Choose minutes</em>
-          </MenuItem> */}
           {minutes.map((minute) => (
             <MenuItem
               key={minute}
@@ -70,6 +86,6 @@ export default function SingleSelect() {
           ))}
         </Select>
       </FormControl>
-    </div>
+    </ThemeProvider>
   );
 }
