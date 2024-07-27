@@ -5,6 +5,7 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import LocalTime from "../TodayListModal/LocalTime";
+import SvgIcon from "@mui/material/SvgIcon";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -53,6 +54,13 @@ export default function SingleSelect() {
             "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
               borderColor: "var(--secondary-blue)",
             },
+          },
+        },
+      },
+      MuiSvgIcon: {
+        styleOverrides: {
+          root: {
+            display: "none",
           },
         },
       },
