@@ -5,7 +5,10 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import LocalTime from "../TodayListModal/LocalTime";
-import SvgIcon from "@mui/material/SvgIcon";
+import { useState } from "react";
+
+// import { setUsedMin } from "../../redux/authReducer";
+// import { useDispatch } from "react-redux";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -34,11 +37,24 @@ function getStyles(name, selectedValue, theme) {
 
 export default function SingleSelect() {
   const theme = useTheme();
-  const [selectedMinute, setSelectedMinute] = React.useState("");
+
+  const [selectedMinute, setSelectedMinute] = useState("");
+  const [localHour, setLocalHour] = useState("");
 
   const handleChange = (event) => {
-    setSelectedMinute(event.target.value);
+    const newSelectedMinute = event.target.value;
+    setSelectedMinute(newSelectedMinute);
+
+    const currentHours = new Date().getHours();
+    setLocalHour(currentHours);
   };
+
+  const formattedMinute =
+    selectedMinute < 10 ? `0${selectedMinute}` : selectedMinute;
+  const formattedHour = localHour < 10 ? `0${localHour}` : localHour;
+  const usedTime = `${formattedHour}:${formattedMinute}`;
+
+  console.log(usedTime);
 
   const createColorBorder = createTheme({
     components: {

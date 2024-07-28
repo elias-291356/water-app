@@ -2,7 +2,7 @@ import React from "react";
 
 const LocalTime = ({ minutes }) => {
   const now = new Date();
-  now.setMinutes(minutes); // Устанавливаем минуты
+  now.setMinutes(minutes);
 
   const formattedTime = now.toLocaleTimeString([], {
     hour: "2-digit",
